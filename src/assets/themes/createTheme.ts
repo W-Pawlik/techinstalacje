@@ -34,7 +34,7 @@ export const createTheme = (): MuiTheme => {
   return createMuiTheme({
     palette,
     typography: {
-      fontFamily: "OpenSans, sans-serif",
+      fontFamily: "Outfit, sans-serif",
       h1: {
         fontSize: "1.5rem",
         fontWeight: "bold",

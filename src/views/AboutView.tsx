@@ -1,11 +1,11 @@
 import { Page } from "../components/presentational/Page";
 
-export const HomeView = () => (
+export const AboutView = () => (
   <Page
     headerProps={{
-      title: "HomePage",
+      title: "AboutView",
     }}
   >
-    <p>Hello world home</p>
+    <p>Hello world AboutView</p>
   </Page>
 );
