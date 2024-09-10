@@ -14,36 +14,24 @@ export const Page = (props: PropsWithChildren<FenPageProps>): JSX.Element => {
 
   return (
     <div css={PageCss.box}>
-      <Paper elevation={1}>
-        {headerProps && (
-          <div css={PageCss.header}>
-            <PageHeader {...headerProps} />
-          </div>
-        )}
-        {topButtons && (
-          <Box px={4} css={PageCss.box}>
-            <ButtonBar>{topButtons}</ButtonBar>
-          </Box>
-        )}
-        <Box px={4} css={PageCss.box}>
-          {children}
-        </Box>
-      </Paper>
+      <Box css={PageCss.pageContent}>{children}</Box>
     </div>
   );
 };
 
 const PageCss = {
-  header: () =>
-    css({
-      padding: "0 2rem",
-      paddingBottom: "1rem",
-    }),
   box: () =>
     css({
-      paddingTop: "2rem",
-      paddingRight: "2rem",
-      paddingLeft: "2rem",
-      paddingBottom: "2rem",
+      backgroundColor: "#FAFAFA",
+      padding: "4rem 6rem",
+      flex: 1,
+      display: "flex",
+      // justifyContent: "center",
+    }),
+  pageContent: () =>
+    css({
+      flex: 1,
+      backgroundColor: "white",
+      padding: "4rem",
     }),
 };

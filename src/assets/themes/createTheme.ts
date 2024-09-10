@@ -19,6 +19,7 @@ import {
   tabsClasses,
   Theme as MuiTheme,
 } from "@mui/material";
+import { borderRadius } from "@mui/system";
 import { createStandardPalette } from "./standardPallete";
 
 import "@emotion/react";
@@ -36,19 +37,19 @@ export const createTheme = (): MuiTheme => {
     typography: {
       fontFamily: "Outfit, sans-serif",
       h1: {
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-        lineHeight: 1.33,
-        marginBottom: "30px",
+        fontSize: "4rem",
+        fontWeight: "700",
+        // lineHeight: 1.33,
+        // marginBottom: "30px",
       },
       h2: {
-        fontSize: "1.25rem",
-        fontWeight: "bold",
+        fontSize: "3rem",
+        fontWeight: "500",
         lineHeight: 1.6,
       },
       h3: {
-        fontSize: "1rem",
-        fontWeight: "bold",
+        fontSize: "2.5rem",
+        fontWeight: "400",
         lineHeight: 1.5,
       },
       h4: {
@@ -77,12 +78,12 @@ export const createTheme = (): MuiTheme => {
         lineHeight: 1.43,
       },
       body1: {
-        fontSize: "1rem",
+        fontSize: "1.25rem",
         fontWeight: 400,
         lineHeight: 1.43,
       },
       body2: {
-        fontSize: "0.875rem",
+        fontSize: "1rem",
         fontWeight: 400,
         lineHeight: 1.71,
       },
@@ -378,6 +379,7 @@ export const createTheme = (): MuiTheme => {
               borderStyle: "solid",
               borderWidth: 1,
               borderColor: palette.primary.main,
+              borderRadius: "6px",
 
               "&:hover": {
                 backgroundColor: darken(palette.primary.main, 0.25),
@@ -393,6 +395,21 @@ export const createTheme = (): MuiTheme => {
                 color: palette.common.white,
                 backgroundColor: palette.grey[400],
                 borderColor: "transparent",
+              },
+              [`&.${buttonClasses.colorSecondary}`]: {
+                color: palette.primary.main,
+                backgroundColor: palette.grey[400],
+                borderColor: "transparent",
+                "&:hover": {
+                  backgroundColor: darken(palette.secondary.main, 0.25),
+                  boxShadow: `0 1px 2px 0 ${palette.grey[500]}`,
+                },
+                "&:focus": {
+                  boxShadow: `0 0 4px 1px ${palette.info.main}`,
+                  borderWidth: 1,
+                  borderColor: "transparent",
+                  backgroundColor: darken(palette.secondary.main, 0.15),
+                },
               },
             },
             [`&.${buttonClasses.outlined}`]: {

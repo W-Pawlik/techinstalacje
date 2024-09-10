@@ -16,6 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/images/LogoTechInstalacje.svg";
 
 const topBarCss = {
   appBar: () =>
@@ -40,6 +41,10 @@ const topBarCss = {
       fontWeight: "600",
       fontSize: "1.1rem",
     }),
+  logo: () =>
+    css({
+      width: "14rem",
+    }),
 };
 
 const navItems = ["home", "oferta", "o nas", "kontakt", "realizacje"];
@@ -58,13 +63,10 @@ export const TopBar = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Techinstalacje
-      </Typography>
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton sx={{ textAlign: "start" }} onClick={() => hanldeNavClick(item)}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -80,8 +82,17 @@ export const TopBar = () => {
           onClick={() => {
             navigate("/home");
           }}
+          disableRipple
+          disableFocusRipple
+          disableTouchRipple
+          aria-label="logo"
         >
-          Techinstalacje
+          <Box
+            component="img"
+            src={logo}
+            css={topBarCss.logo}
+            sx={{ width: { xs: "10rem", md: "14rem" } }}
+          />
         </IconButton>
         <Box sx={{ display: { xs: "none", md: "flex" } }} css={topBarCss.navContainer}>
           {navItems.map((item, index) => (

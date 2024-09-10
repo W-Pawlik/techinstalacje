@@ -52,6 +52,7 @@
     "globals": "^15.9.0",
     "jsdom": "24.0.0",
     "prettier": "3.2.5",
+    "svg-react-loader": "^0.4.6",
     "typescript": "^5.3.3",
     "vite": "5.2.11",
     "vite-tsconfig-paths": "4.3.2",

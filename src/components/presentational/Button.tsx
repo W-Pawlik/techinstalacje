@@ -9,6 +9,8 @@ export interface CommonButtonProps {
   startIcon?: React.ReactNode;
   size?: "large" | "small" | "medium";
   type?: "button" | "submit" | "reset";
+  color?: "primary" | "secondary";
+  padding?: string;
 }
 
 const CommonButtonInternal = ({
@@ -19,6 +21,8 @@ const CommonButtonInternal = ({
   startIcon,
   type = "button",
   size = "medium",
+  color = "primary",
+  padding,
 }: CommonButtonProps): JSX.Element => {
   const variant = secondary ? "outlined" : "contained";
 
@@ -26,11 +30,12 @@ const CommonButtonInternal = ({
     <Button
       type={type}
       variant={variant}
-      color="primary"
+      color={color}
       onClick={onClick}
       disabled={disabled}
       startIcon={startIcon}
       size={size}
+      style={{ padding }}
     >
       {text}
     </Button>

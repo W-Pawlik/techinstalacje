@@ -22,12 +22,13 @@ declare module "@mui/material/styles/createPalette" {
 }
 
 const uxStandardColors = {
-  brandBlue: "#3b75b3",
+  // brandBlue: "#3b75b3",
+  brandBlue: "#4A80D2",
   backgroundWhite: "#fff",
-  backgroundBlack: "#000524",
+  backgroundBlack: "#0A0A0A",
   backgroundDarkGrey: "#4e647b",
   backgroundGrey: "#96a8ba",
-  backgroundLightGrey: "#c0cedc",
+  backgroundLightGrey: "#D9D9D9",
   backgroundLighterGrey: "#e6ebf1",
   backgroundLightestGrey: "#f5f7f9",
   // error, info, success, warning colors
@@ -62,7 +63,7 @@ export const createStandardPalette = (): GeneralPaletteOptions => {
       main: primaryColor,
     },
     secondary: {
-      main: uxStandardColors.backgroundDarkGrey,
+      main: uxStandardColors.backgroundLightGrey,
     },
     background: {
       default: uxStandardColors.backgroundWhite,

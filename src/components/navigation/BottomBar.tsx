@@ -8,9 +8,9 @@ import { SocialMediaContainer } from "../containers/SocialMediaContainer";
 const bottomBarCss = {
   footer: () =>
     css({
-      position: "absolute",
-      top: "auto",
-      bottom: 0,
+      // position: "absolute",
+      // top: "auto",
+      // bottom: 0,
       padding: "0 5rem",
     }),
   footerContent: (theme: Theme) =>
@@ -20,6 +20,7 @@ const bottomBarCss = {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+      textAlign: "center",
       padding: "0.8rem 0",
       borderTop: "thin solid #d8d8d8",
       fontWeight: "600",
@@ -36,9 +37,9 @@ export const BottomBar = () => (
   <AppBar
     component="footer"
     css={bottomBarCss.footer}
-    sx={{ position: "absolute", top: "auto", bottom: 0 }}
+    // sx={{ position: "absolute", top: "auto", bottom: 0 }}
   >
-    <Box css={bottomBarCss.footerContent}>
+    <Box css={bottomBarCss.footerContent} sx={{ flexDirection: { xs: "column", md: "row" } }}>
       <Typography variant="body1" sx={{ fontWeight: "600" }}>
         Copyright &copy; TechInstalacje. All rights reserved.
       </Typography>
