@@ -1,11 +1,7 @@
 import { Page } from "../components/presentational/Page";
 
 export const AboutView = () => (
-  <Page
-    headerProps={{
-      title: "AboutView",
-    }}
-  >
+  <Page herSectionTitle={"O nas"} heroSectionSubtitle={"Poznaj nas bliżej"}>
     <p>Hello world AboutView</p>
   </Page>
 );

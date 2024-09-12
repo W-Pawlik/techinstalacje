@@ -19,7 +19,6 @@ import {
   tabsClasses,
   Theme as MuiTheme,
 } from "@mui/material";
-import { borderRadius } from "@mui/system";
 import { createStandardPalette } from "./standardPallete";
 
 import "@emotion/react";
@@ -37,13 +36,13 @@ export const createTheme = (): MuiTheme => {
     typography: {
       fontFamily: "Outfit, sans-serif",
       h1: {
-        fontSize: "4rem",
+        fontSize: "3.5rem",
         fontWeight: "700",
         // lineHeight: 1.33,
         // marginBottom: "30px",
       },
       h2: {
-        fontSize: "3rem",
+        fontSize: "2.5rem",
         fontWeight: "500",
         lineHeight: 1.6,
       },

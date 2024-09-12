@@ -1,21 +1,30 @@
 import React, { PropsWithChildren } from "react";
 import { css } from "@emotion/react";
-import { Box, Paper } from "@mui/material";
-import { ButtonBar } from "./ButtonBar";
-import { PageHeader, PageHeaderProps } from "./PageHeader";
+import { Box } from "@mui/material";
+import { HeroSection } from "./HeroSection";
 
-export interface FenPageProps {
-  topButtons?: React.ReactNode;
-  headerProps?: PageHeaderProps;
+export interface PageProps {
+  herSectionTitle: string;
+  heroSectionSubtitle: string;
+  buttonText?: string;
+  banner?: string;
 }
 
-export const Page = (props: PropsWithChildren<FenPageProps>): JSX.Element => {
-  const { children, headerProps, topButtons } = props;
+export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
+  const { children, herSectionTitle, heroSectionSubtitle, buttonText, banner } = props;
 
   return (
-    <div css={PageCss.box}>
-      <Box css={PageCss.pageContent}>{children}</Box>
-    </div>
+    <>
+      <HeroSection
+        title={herSectionTitle}
+        subtitle={heroSectionSubtitle}
+        buttonText={buttonText}
+        banner={banner}
+      />
+      <div css={PageCss.box}>
+        <Box css={PageCss.pageContent}>{children}</Box>
+      </div>
+    </>
   );
 };
 
@@ -26,7 +35,6 @@ const PageCss = {
       padding: "4rem 6rem",
       flex: 1,
       display: "flex",
-      // justifyContent: "center",
     }),
   pageContent: () =>
     css({

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import { BaseDialog } from "../BaseDialog";
 
-describe("BaseDialog Component", () => {
+describe("BaseDialog Component test", () => {
   const onClose = vi.fn();
 
   const title = "Test Title";

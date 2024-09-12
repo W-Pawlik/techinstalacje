@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { SvgIconComponent } from "@mui/icons-material";
-import { Link, List, ListItem, ListItemButton } from "@mui/material";
+import { List, ListItemButton } from "@mui/material";
 import { Box } from "@mui/system";
 
 interface SocialMediaIcon {
@@ -23,7 +23,7 @@ export const SocialMediaContainer = ({ icons }: SocialMediaContainerProps) => (
   <Box display="flex" component="div" css={socialMediaContainerCss.smContainer}>
     {icons.map(({ icon: Icon, url }, i) => (
       <List key={i}>
-        <ListItemButton component="a" target="_blank" href={url}>
+        <ListItemButton component="a" target="_blank" href={url} data-testid="link">
           <Icon />
         </ListItemButton>
       </List>

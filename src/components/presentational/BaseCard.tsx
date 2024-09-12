@@ -1,5 +1,4 @@
-import { css, Theme, useTheme } from "@emotion/react";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, css, Theme, Typography, useTheme } from "@mui/material";
 
 export interface BaseCardInterface {
   title?: string;
@@ -44,7 +43,7 @@ const BaseCardCss = {
 export const BaseCard = ({ title, textContent, size = "medium", imgUrl }: BaseCardInterface) => {
   const theme: Theme = useTheme();
   return (
-    <Card css={BaseCardCss.card(theme, size)}>
+    <Card data-testid="card" css={BaseCardCss.card(theme, size)}>
       {imgUrl && <CardMedia component="img" alt={title} image={imgUrl} />}
       <CardContent css={BaseCardCss.cardContent(theme)}>
         <Typography variant="h3" fontSize="1.5rem" paddingBottom="1rem">

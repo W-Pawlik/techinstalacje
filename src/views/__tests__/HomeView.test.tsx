@@ -1,21 +1,35 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import test, { describe } from "node:test";
-import { TestingProvider } from "../../__fixtures__/TestingProvider";
+import { describe, expect, it } from "vitest";
 import { HomeView } from "../HomeView";
 
 describe("HomeView tests", () => {
-  test("View is rendered", () => {
-    // Arrange
+  it("should render the cards", () => {
+    render(<HomeView />);
 
-    // Act
-    render(
-      <TestingProvider>
-        <HomeView />
-      </TestingProvider>,
-    );
+    const cardTitles = ["Jakość", "Wykonanie", "Zaufanie", "Remonty od A do Z"];
+    cardTitles.forEach((title) => {
+      expect(screen.getByText(title)).toBeInTheDocument();
+    });
+  });
 
-    // Assert
-    expect(screen.getByText("Hello world")).toBeInTheDocument();
+  it("should render the images in the realizations section", () => {
+    render(<HomeView />);
+
+    const imageAltTexts = ["Ispot", "Santander", "Rcos"];
+    imageAltTexts.forEach((altText) => {
+      const img = screen.getByAltText(altText);
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute("src");
+    });
+  });
+
+  it("should render the stepper and offert tiles components", () => {
+    render(<HomeView />);
+
+    expect(screen.getByText("Prześledź wszystkie kroki")).toBeInTheDocument();
+    expect(screen.getByText("Jak przebiega nasza współpraca?")).toBeInTheDocument();
+
+    expect(screen.getByText("Poznaj naszą ofertę")).toBeInTheDocument();
+    expect(screen.getByText("Dlaczego TechInstalacje?")).toBeInTheDocument();
   });
 });
