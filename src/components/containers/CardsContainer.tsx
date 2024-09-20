@@ -5,6 +5,7 @@ import { BaseCard } from "../presentational/BaseCard";
 interface CardData {
   title: string;
   textContent: string;
+  pngIcon?: string;
 }
 
 interface CardsContainerProps {
@@ -20,11 +21,17 @@ export const CardsContainer = ({ cardSize, cardsData }: CardsContainerProps) => 
     sx={{
       flexDirection: { xs: "column", sm: "column", md: "row" },
       alignItems: { xs: "center", sm: "center", md: "stretch" },
-      marginBottom: "10rem",
+      marginBottom: "5rem",
     }}
   >
     {cardsData.map((card, index) => (
-      <BaseCard key={index} title={card.title} textContent={card.textContent} size={cardSize} />
+      <BaseCard
+        key={index}
+        title={card.title}
+        textContent={card.textContent}
+        size={cardSize}
+        pngIcon={card.pngIcon}
+      />
     ))}
   </Box>
 );

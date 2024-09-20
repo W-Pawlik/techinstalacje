@@ -1,10 +1,11 @@
-import { Card, CardContent, CardMedia, css, Theme, Typography, useTheme } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, css, Theme, Typography, useTheme } from "@mui/material";
 
 export interface BaseCardInterface {
   title?: string;
   textContent?: string;
   size?: "xs" | "small" | "medium" | "large";
   imgUrl?: string;
+  pngIcon?: string;
 }
 
 // Mapa rozmiarów
@@ -23,6 +24,7 @@ const BaseCardCss = {
       alignItems: "center",
       justifyContent: "start",
       textAlign: "center",
+      padding: "1rem",
       width: cardSizes[size].width,
       height: cardSizes[size].height,
       backgroundColor: theme.palette.common.brandBlue,
@@ -40,15 +42,22 @@ const BaseCardCss = {
     }),
 };
 
-export const BaseCard = ({ title, textContent, size = "medium", imgUrl }: BaseCardInterface) => {
+export const BaseCard = ({
+  title,
+  textContent,
+  size = "medium",
+  imgUrl,
+  pngIcon,
+}: BaseCardInterface) => {
   const theme: Theme = useTheme();
   return (
     <Card data-testid="card" css={BaseCardCss.card(theme, size)}>
       {imgUrl && <CardMedia component="img" alt={title} image={imgUrl} />}
       <CardContent css={BaseCardCss.cardContent(theme)}>
-        <Typography variant="h3" fontSize="1.5rem" paddingBottom="1rem">
+        <Typography variant="h3" paddingBottom="1rem">
           {title}
         </Typography>
+        {pngIcon && <Box component="img" alt={pngIcon} src={pngIcon} />}
         <Typography variant="body2">{textContent}</Typography>
       </CardContent>
     </Card>
