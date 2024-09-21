@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { css, useTheme } from "@emotion/react";
 import { Theme, Typography } from "@mui/material";
+import { BaseNotification } from "../presentational/BaseNotification";
 import { CommonButton } from "../presentational/Button";
 
 const ContactFormCss = {
@@ -44,55 +45,110 @@ export const ContactForm = () => {
   const theme: Theme = useTheme();
   const form = useRef();
 
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    from_phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // eslint-disable-next-line import/no-named-as-default-member
     emailjs
       .sendForm("service_wxmyr5d", "template_zfvow85", form.current, {
         publicKey: "cNtCTivX5pxxwrd7C",
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          setOpen(true);
+          setError(false);
+          setFormData({
+            from_name: "",
+            from_email: "",
+            from_phone: "",
+            message: "",
+          });
         },
-        (error) => {
-          console.log("FAILED...", error.text);
+        () => {
+          setOpen(true);
+          setError(true);
         },
       );
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} css={ContactFormCss.form(theme)}>
-      <Typography variant="h2" css={ContactFormCss.title}>
-        Formularz kontaktowy
-      </Typography>
-      <input
-        type="text"
-        name="from_name"
-        placeholder="Imie i nazwisko"
-        css={ContactFormCss.input(theme)}
-      />
-      <input
-        type="email"
-        name="from_email"
-        placeholder="Adres E-mail"
-        css={ContactFormCss.input(theme)}
-      />
-      <input
-        type="tel"
-        name="from_phone"
-        placeholder="Telefon"
-        css={ContactFormCss.input(theme)}
-        pattern="[0-9]{9}"
-        required
-      />
-      <textarea
-        name="Twoja wiadomość"
-        placeholder="Twoja wiadomość"
-        css={ContactFormCss.input(theme)}
-        style={{ height: "8rem" }}
-      />
-      <CommonButton type="submit" text="Wyślij zapytanie" size="small" />
-    </form>
+    <>
+      <form ref={form} onSubmit={sendEmail} css={ContactFormCss.form(theme)}>
+        <Typography variant="h2" css={ContactFormCss.title}>
+          Formularz kontaktowy
+        </Typography>
+        <input
+          type="text"
+          name="from_name"
+          value={formData.from_name}
+          onChange={handleChange}
+          placeholder="Imie i nazwisko"
+          css={ContactFormCss.input(theme)}
+          required
+        />
+        <input
+          type="email"
+          name="from_email"
+          value={formData.from_email}
+          onChange={handleChange}
+          placeholder="Adres E-mail"
+          css={ContactFormCss.input(theme)}
+          required
+        />
+        <input
+          type="tel"
+          name="from_phone"
+          value={formData.from_phone}
+          onChange={handleChange}
+          placeholder="Telefon"
+          css={ContactFormCss.input(theme)}
+          required
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Twoja wiadomość"
+          css={ContactFormCss.input(theme)}
+          style={{ height: "8rem" }}
+        />
+        <CommonButton type="submit" text="Wyślij zapytanie" size="small" />
+      </form>
+      {open && (
+        <BaseNotification
+          onClose={handleClose}
+          severity={error ? "error" : "success"}
+          variant="filled"
+          open={open}
+          message={error ? "Błąd! Wiadomość nie została wysłana" : "Wiadmość została wysłana"}
+          autoHideDuration={1500}
+        />
+      )}
+    </>
   );
 };
