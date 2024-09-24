@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
 import { CardsContainer } from "../../src/components/containers/CardsContainer";
@@ -18,39 +19,59 @@ const ContactViewCss = {
     }),
 };
 
-export const ContactView = () => (
-  <Page herSectionTitle={"Kontakt"} heroSectionSubtitle={"Napisz do nas"} banner={banner}>
-    <TitleSubTitleContainer
-      title="Skontaktuj się z nami w celu ustalenia warunków współpracy!"
-      subtitle="Nie ważne czy przez maila, smsa czy rozmowę telefoniczną, ważne że jesteśmy otwarci na każdą propozycję i zwykle odpowiadamy jeszcze tego samego dnia."
-    />
+export const ContactView = () => {
+  const formRef = useRef<HTMLDivElement>(null);
 
-    <Box css={ContactViewCss.formBox}>
-      <ContactForm />
-    </Box>
+  const scrollToTabs = () => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+    }
+  };
 
-    <Box marginTop="5rem">
-      <CardsContainer
-        cardSize="medium"
-        cardsData={[
-          {
-            title: "Adres",
-            textContent:
-              "ul. Piłsudskiego 74/320 50-020 Wrocław NIP: 897 187 52 77 Regon 385355839 KRS 0000824325",
-            pngIcon: AdresIcon,
-          },
-          {
-            title: "Telefon",
-            textContent: "+48 690 001 858 Godziny kontaktu: Pon-Pt: 8:00 - 18:00 Sob: 9:00 - 14:00",
-            pngIcon: ContactIcon,
-          },
-          {
-            title: "E-Mail",
-            textContent: "biuro@techinstalacje.pl",
-            pngIcon: EmailIcon,
-          },
-        ]}
+  useEffect(() => {
+    const shouldScrollToForm = localStorage.getItem("scrollToForm");
+
+    if (shouldScrollToForm === "true") {
+      scrollToTabs();
+    }
+    localStorage.removeItem("scrollToForm");
+  }, []);
+
+  return (
+    <Page herSectionTitle={"Kontakt"} heroSectionSubtitle={"Napisz do nas"} banner={banner}>
+      <TitleSubTitleContainer
+        title="Skontaktuj się z nami w celu ustalenia warunków współpracy!"
+        subtitle="Nie ważne czy przez maila, smsa czy rozmowę telefoniczną, ważne że jesteśmy otwarci na każdą propozycję i zwykle odpowiadamy jeszcze tego samego dnia."
       />
-    </Box>
-  </Page>
-);
+
+      <Box css={ContactViewCss.formBox} ref={formRef}>
+        <ContactForm />
+      </Box>
+
+      <Box marginTop="5rem">
+        <CardsContainer
+          cardSize="medium"
+          cardsData={[
+            {
+              title: "Adres",
+              textContent:
+                "ul. Piłsudskiego 74/320 50-020 Wrocław NIP: 897 187 52 77 Regon 385355839 KRS 0000824325",
+              pngIcon: AdresIcon,
+            },
+            {
+              title: "Telefon",
+              textContent:
+                "+48 690 001 858 Godziny kontaktu: Pon-Pt: 8:00 - 18:00 Sob: 9:00 - 14:00",
+              pngIcon: ContactIcon,
+            },
+            {
+              title: "E-Mail",
+              textContent: "biuro@techinstalacje.pl",
+              pngIcon: EmailIcon,
+            },
+          ]}
+        />
+      </Box>
+    </Page>
+  );
+};

@@ -372,6 +372,7 @@ export const createTheme = (): MuiTheme => {
           root: {
             fontWeight: 600,
             fontSize: "1rem",
+            textTransform: "none",
 
             [`&.${buttonClasses.contained}`]: {
               boxShadow: "none",

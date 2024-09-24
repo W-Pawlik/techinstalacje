@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
+import { replace, useNavigate } from "react-router-dom";
 import offert1 from "../../assets/images/offert1.jpg";
 import offert2 from "../../assets/images/offert2.jpg";
 import offert3 from "../../assets/images/offert3.jpg";
@@ -7,7 +8,7 @@ import offert4 from "../../assets/images/offert4.jpg";
 
 const tileData = [
   {
-    title: "Instalacje gazowe",
+    title: "Instalacje",
     imageUrl: offert1,
     description: "Profesjonalne instalacje gazowe dla dużych obiektów",
   },
@@ -105,34 +106,48 @@ const tileStyles = {
   }),
 };
 
-export const OffertTiles = () => (
-  <Box css={tileStyles.tileContainer}>
-    {tileData.map((tile, index) => (
-      <Box css={tileStyles.tile} key={index}>
-        <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} />
-        <Box className="overlay" css={tileStyles.overlay} />
-        <Typography className="title" css={tileStyles.title}>
-          {tile.title}
-        </Typography>
-        <Typography
-          className="description"
-          css={tileStyles.description}
-          display="flex"
-          flexDirection="column"
-          alignItems="start"
-          gap="1rem"
-        >
-          {tile.description}
-          <Box display="flex" alignItems="center" justifyContent="center">
-            <Button variant="text" css={tileStyles.btn} className="btn">
-              Sprawdź ofertę
-              <span css={tileStyles.arrow} className="arrow">
-                &#x203A;
-              </span>
-            </Button>
-          </Box>
-        </Typography>
-      </Box>
-    ))}
-  </Box>
-);
+export const OffertTiles = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (tileTitle: string) => {
+    localStorage.setItem("scrollToTabs", "true");
+    navigate(`/oferta/${tileTitle}`);
+  };
+
+  return (
+    <Box css={tileStyles.tileContainer}>
+      {tileData.map((tile, index) => (
+        <Box css={tileStyles.tile} key={index}>
+          <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} />
+          <Box className="overlay" css={tileStyles.overlay} />
+          <Typography className="title" css={tileStyles.title}>
+            {tile.title}
+          </Typography>
+          <Typography
+            className="description"
+            css={tileStyles.description}
+            display="flex"
+            flexDirection="column"
+            alignItems="start"
+            gap="1rem"
+          >
+            {tile.description}
+            <Box display="flex" alignItems="center" justifyContent="center">
+              <Button
+                variant="text"
+                css={tileStyles.btn}
+                className="btn"
+                onClick={() => handleClick(tile.title)}
+              >
+                Sprawdź ofertę
+                <span css={tileStyles.arrow} className="arrow">
+                  &#x203A;
+                </span>
+              </Button>
+            </Box>
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+};

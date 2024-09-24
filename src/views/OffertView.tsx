@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
@@ -10,6 +11,7 @@ import tab3Img from "../assets/images/offertHydraulika.png";
 import tab2Img from "../assets/images/offertInstalacje.png";
 import tab4Img from "../assets/images/offertWentylacja.png";
 import { Page } from "../components/presentational/Page";
+import { useNavigate } from "react-router-dom";
 
 const tabData = [
   {
@@ -44,25 +46,55 @@ const tabData = [
   },
 ];
 
-export const OffertView = () => (
-  <Page
-    herSectionTitle={"Oferta"}
-    heroSectionSubtitle={"Wybierz idealną dla siebie"}
-    banner={banner}
-  >
-    <TitleSubTitleContainer
-      title="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
-      subtitle="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-    />
+export const OffertView = () => {
+  const navigate = useNavigate();
+  const tabsRef = useRef<HTMLDivElement>(null);
 
-    <BaseTabs tabData={tabData} />
+  const scrollToTabs = () => {
+    if (tabsRef.current) {
+      tabsRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+    }
+  };
 
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}>
-      <Typography variant="h2" sx={{ marginTop: "4rem", textAlign: "center", fontWeight: "bold" }}>
-        Tworzymy spersonalizowane oferty specjalne dla Twojej firmy! Skontaktuj się z nami w celu
-        ustalenia warunków itp. itd.
-      </Typography>
-      <CommonButton text="Skontaktuj się z nami" />
-    </Box>
-  </Page>
-);
+  const handleClick = () => {
+    localStorage.setItem("scrollToForm", "true");
+    navigate("/kontakt");
+  };
+
+  useEffect(() => {
+    const shouldScrollToTabs = localStorage.getItem("scrollToTabs");
+
+    if (shouldScrollToTabs === "true") {
+      scrollToTabs();
+    }
+    localStorage.removeItem("scrollToTabs");
+  }, []);
+
+  return (
+    <Page
+      herSectionTitle={"Oferta"}
+      heroSectionSubtitle={"Wybierz idealną dla siebie"}
+      banner={banner}
+    >
+      <TitleSubTitleContainer
+        title="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+        subtitle="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+      />
+
+      <Box component="div" ref={tabsRef}>
+        <BaseTabs tabData={tabData} />
+      </Box>
+
+      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}>
+        <Typography
+          variant="h2"
+          sx={{ marginTop: "4rem", textAlign: "center", fontWeight: "bold" }}
+        >
+          Tworzymy spersonalizowane oferty specjalne dla Twojej firmy! Skontaktuj się z nami w celu
+          ustalenia warunków itp. itd.
+        </Typography>
+        <CommonButton text="Skontaktuj się z nami" onClick={handleClick} />
+      </Box>
+    </Page>
+  );
+};

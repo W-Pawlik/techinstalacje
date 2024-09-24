@@ -15,7 +15,7 @@ const ContactFormCss = {
       alignItems: "stretch",
       padding: "2rem 8rem",
       backgroundColor: theme.palette.common.brandBlue,
-      borderRadius: "10px",
+      borderRadius: "20px",
       width: "50%",
       textAlign: "center",
       "& button": {

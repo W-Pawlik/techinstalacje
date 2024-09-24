@@ -23,6 +23,7 @@ const BaseCardCss = {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "start",
+      borderRadius: "20px",
       textAlign: "center",
       padding: "1rem",
       width: cardSizes[size].width,

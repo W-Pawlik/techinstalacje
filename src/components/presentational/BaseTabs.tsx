@@ -100,7 +100,7 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({ tabData }) => {
         textColor="inherit"
         sx={{
           "& .MuiTabs-scroller": {
-            overflow: "visible !important", // Nadpisuje overflow na visible
+            overflow: "visible !important",
           },
         }}
       >
@@ -117,7 +117,6 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({ tabData }) => {
             }
             sx={{
               overflow: "visible !important",
-              //   position: "relative",
               "&.MuiTabs-scroller": {
                 overflow: "visible !important",
               },
