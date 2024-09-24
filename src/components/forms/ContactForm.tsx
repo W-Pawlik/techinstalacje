@@ -43,7 +43,7 @@ const ContactFormCss = {
 
 export const ContactForm = () => {
   const theme: Theme = useTheme();
-  const form = useRef();
+  const form = useRef(null);
 
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
@@ -54,13 +54,9 @@ export const ContactForm = () => {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleClick = () => {
-    setOpen(true);
   };
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
@@ -70,30 +66,32 @@ export const ContactForm = () => {
     setOpen(false);
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // eslint-disable-next-line import/no-named-as-default-member
-    emailjs
-      .sendForm("service_wxmyr5d", "template_zfvow85", form.current, {
-        publicKey: "cNtCTivX5pxxwrd7C",
-      })
-      .then(
-        () => {
-          setOpen(true);
-          setError(false);
-          setFormData({
-            from_name: "",
-            from_email: "",
-            from_phone: "",
-            message: "",
-          });
-        },
-        () => {
-          setOpen(true);
-          setError(true);
-        },
-      );
+    if (form.current !== null) {
+      // eslint-disable-next-line import/no-named-as-default-member
+      emailjs
+        .sendForm("service_wxmyr5d", "template_zfvow85", form.current, {
+          publicKey: "cNtCTivX5pxxwrd7C",
+        })
+        .then(
+          () => {
+            setOpen(true);
+            setError(false);
+            setFormData({
+              from_name: "",
+              from_email: "",
+              from_phone: "",
+              message: "",
+            });
+          },
+          () => {
+            setOpen(true);
+            setError(true);
+          },
+        );
+    }
   };
 
   return (

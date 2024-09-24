@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { ImageListItem, List, Typography } from "@mui/material";
 import { Box, useMediaQuery } from "@mui/system";
+import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import banner from "../assets/images/heroSectionBanner.png";
 import logo1 from "../assets/images/realization1.png";
 import logo2 from "../assets/images/realization2.png";
@@ -69,24 +70,10 @@ export const HomeView = () => {
       buttonText="click"
       banner={banner}
     >
-      <Typography
-        variant="h1"
-        textAlign="center"
-        fontWeight="700"
-        marginBottom="1rem"
-        lineHeight="5.87rem"
-      >
-        Nasze Kluczowe Wartości, którymi kierujemy się każdego dnia
-      </Typography>
-      <Typography
-        variant="h2"
-        textAlign="center"
-        fontWeight="400"
-        marginBottom="3rem"
-        lineHeight="3.56rem"
-      >
-        Wyróżniamy się dzięki niezawodnej jakości, zaufaniu i doskonałemu wykonaniu
-      </Typography>
+      <TitleSubTitleContainer
+        title="Nasze Kluczowe Wartości, którymi kierujemy się każdego dnia"
+        subtitle=" Wyróżniamy się dzięki niezawodnej jakości, zaufaniu i doskonałemu wykonaniu"
+      />
 
       <CardsContainer
         cardSize={cardSize}

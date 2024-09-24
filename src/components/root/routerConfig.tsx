@@ -32,6 +32,10 @@ export const routerConfig: RouteObject[] = [
         handle: {
           crumb: () => <Typography color="text.primary">Offert</Typography>,
         },
+        children: [
+          { index: true, element: <Navigate to="Fotowoltaika" replace /> },
+          { path: ":offertTab", element: <OffertView /> },
+        ],
       },
       {
         path: navigationRoutes.AboutView,
