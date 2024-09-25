@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { CardsContainer } from "../../src/components/containers/CardsContainer";
 import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import { ContactForm } from "../../src/components/forms/ContactForm";

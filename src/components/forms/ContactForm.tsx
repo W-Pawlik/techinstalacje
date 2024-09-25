@@ -38,6 +38,9 @@ const ContactFormCss = {
       border: "none",
       resize: "none",
       color: theme.palette.common.brandBlue,
+      "&::placeholder": {
+        color: theme.palette.common.brandBlue,
+      },
     }),
 };
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import { BaseTabs } from "../../src/components/presentational/BaseTabs";
 import { CommonButton } from "../../src/components/presentational/Button";
@@ -11,7 +12,6 @@ import tab3Img from "../assets/images/offertHydraulika.png";
 import tab2Img from "../assets/images/offertInstalacje.png";
 import tab4Img from "../assets/images/offertWentylacja.png";
 import { Page } from "../components/presentational/Page";
-import { useNavigate } from "react-router-dom";
 
 const tabData = [
   {
