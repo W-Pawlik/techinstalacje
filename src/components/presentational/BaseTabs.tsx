@@ -37,13 +37,6 @@ const BaseTabsCss = {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
       transition: "all 0.3s ease zIndex 0s",
-
-      "&:after": {
-        display: "block",
-        position: "absolute",
-        height: "10rem",
-        backgroundColor: "red",
-      },
     }),
   inactiveTab: (theme: Theme) =>
     css({
@@ -131,7 +124,7 @@ export const BaseTabs: React.FC<BaseTabsProps> = ({ tabData }) => {
                 bottom: "-0.5rem",
                 zIndex: "10",
                 backgroundColor: theme.palette.common.brandBlue,
-                width: "16rem",
+                width: "20rem",
                 height: "4rem",
                 content: `"${tab.tabTitle}"`,
                 color: "white",

@@ -10,8 +10,10 @@ const GalleryTileCss = {
   tileContainer: () =>
     css({
       position: "relative",
-      width: "33rem",
-      height: "23rem",
+      // width: "40rem",
+      // height: "25rem",
+      width: "100%",
+      height: "25rem",
       display: "flex",
       alignItems: "flex-end",
       color: "white",

@@ -13,7 +13,6 @@ import {
   ListItemButton,
   ListItemText,
   Toolbar,
-  Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/LogoTechInstalacje.svg";
@@ -21,8 +20,7 @@ import logo from "../../assets/images/LogoTechInstalacje.svg";
 const topBarCss = {
   appBar: () =>
     css({
-      paddingLeft: "3rem",
-      paddingRight: "3rem",
+      alignSelf: "center",
     }),
   toolBar: () =>
     css({
@@ -76,7 +74,7 @@ export const TopBar = () => {
   );
 
   return (
-    <AppBar css={topBarCss.appBar} component="nav">
+    <AppBar css={topBarCss.appBar} component="nav" sx={{ width: { md: "100%", lg: "90rem" } }}>
       <Toolbar css={topBarCss.toolBar}>
         <IconButton
           onClick={() => {

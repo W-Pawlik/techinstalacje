@@ -18,10 +18,14 @@ const heroSectionCss = {
       alignItems: "start",
       justifyContent: "center",
       paddingLeft: "4rem",
-      height: "26rem",
+      boxSizing: "border-box",
+      width: "100%",
+      height: "60vh",
       flexDirection: "column",
       // eslint-disable-next-line max-len
-      background: `linear-gradient(90deg, rgba(74,128,210,1) 16%, rgba(76,128,206,1) 36%, rgba(115,115,115,0) 77%), url(${banner})`,
+      // background: `linear-gradient(90deg, rgba(74,128,210,1) 16%, rgba(76,128,206,1) 36%, rgba(115,115,115,0) 77%), url(${banner})`,
+      // eslint-disable-next-line max-len
+      background: `linear-gradient(90deg, #4c80ce8d 2%, rgba(115,115,115,0) 77%), url(${banner})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
     }),
@@ -37,7 +41,6 @@ export const HeroSection = ({ title, subtitle, buttonText, banner }: HeroSection
     <Typography
       variant="h1"
       sx={{
-        fontSize: { xs: "3rem", sm: "3rem", md: "4rem" },
         fontWeight: "600",
         color: "#fff",
         textTransform: "uppercase",
@@ -48,7 +51,6 @@ export const HeroSection = ({ title, subtitle, buttonText, banner }: HeroSection
     <Typography
       variant="h2"
       sx={{
-        fontSize: { xs: "3rem", sm: "2.5rem" },
         fontWeight: "300",
         color: "#fff",
         textTransform: "uppercase",

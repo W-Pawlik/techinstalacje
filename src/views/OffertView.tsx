@@ -76,10 +76,17 @@ export const OffertView = () => {
       heroSectionSubtitle={"Wybierz idealną dla siebie"}
       banner={banner}
     >
-      <TitleSubTitleContainer
-        title="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
-        subtitle="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-      />
+      <Typography
+        sx={{
+          textAlign: "center",
+          marginBottom: "4rem",
+          borderBottom: "1px solid #D9D9D9",
+          paddingBottom: "2rem",
+        }}
+        variant="h1"
+      >
+        Nasze realizacje tworzone są bla bla bla bla lorem ipsum
+      </Typography>
 
       <Box component="div" ref={tabsRef}>
         <BaseTabs tabData={tabData} />

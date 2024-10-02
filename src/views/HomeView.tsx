@@ -6,6 +6,7 @@ import banner from "../assets/images/heroSectionBanner.png";
 import logo1 from "../assets/images/realization1.png";
 import logo2 from "../assets/images/realization2.png";
 import logo3 from "../assets/images/realization3.png";
+import smthImg from "../assets/images/smth (2).png";
 import { CardsContainer } from "../components/containers/CardsContainer";
 import ContentWithHeadingContainer from "../components/containers/ContentWithHeadingContainer";
 import { OffertTiles } from "../components/presentational/OffertTiles";
@@ -31,6 +32,28 @@ const HomeViewCss = {
       alignItems: "center",
       justifyContent: "center",
       gap: "2rem",
+    }),
+  headingCont: () =>
+    css({
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "2rem",
+      marginBottom: "5rem",
+    }),
+  headingText: () =>
+    css({
+      // width: "45rem",
+      // height: "24rem",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "4rem",
+    }),
+  headingImg: () =>
+    css({
+      width: "30rem",
+      height: "19rem",
     }),
 };
 
@@ -70,10 +93,25 @@ export const HomeView = () => {
       buttonText="click"
       banner={banner}
     >
-      <TitleSubTitleContainer
-        title="Nasze Kluczowe Wartości, którymi kierujemy się każdego dnia"
-        subtitle=" Wyróżniamy się dzięki niezawodnej jakości, zaufaniu i doskonałemu wykonaniu"
-      />
+      <Box css={HomeViewCss.headingCont}>
+        <Box css={HomeViewCss.headingText}>
+          <Typography variant="h2" textAlign="center" width="70%" fontWeight="bold">
+            TechInstalacje - nowoczesne rozwiązania to nasza pasja{" "}
+          </Typography>
+          <Typography variant="body1" fontSize="1rem">
+            Profesjonalne doradztwo, sprzedaż, montaż i obsługa serwisowa urządzeń i instalacji
+            wymaga nieustannego doskonalenia umiejętności. Dlatego uczestniczymy w szkoleniach
+            branżowych jak i produktowych wiodących marek. Dzięki kształceniu się w Szkole
+            Nowoczesnych Technik Grzewczych VIESSMANN, firma TECHINSTALACJE stała się specjalistą
+            branży Odnawialnych Źródeł Energii (OZE). Jako nieliczni możemy pochwalić się
+            certyfikatem Instalatora OZE. W 2020 roku zaplanowaliśmy zakończyć budowę DOMU
+            TESTOWEGO, w którym zaprezentujemy część rozwiązań, na jakie także Państwo będziecie
+            mogli się zdecydować. Jeśli szukacie wykwalifikowanych specjalistów w wyżej wymienionych
+            dziedzinach, zadzwońcie do Nas.
+          </Typography>
+        </Box>
+        <Box component="img" src={smthImg} alt="hey" css={HomeViewCss.headingImg} />
+      </Box>
 
       <CardsContainer
         cardSize={cardSize}
@@ -94,7 +132,17 @@ export const HomeView = () => {
               "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
           },
           {
-            title: "Remonty od A do Z",
+            title: "Profesjonalizm",
+            textContent:
+              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+          },
+          {
+            title: "Terminowość",
+            textContent:
+              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+          },
+          {
+            title: "Doradztwo",
             textContent:
               "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
           },
@@ -102,13 +150,15 @@ export const HomeView = () => {
       />
 
       <Box css={HomeViewCss.RealizationsBox}>
-        <Typography variant="h2">Realziacje w placówkach</Typography>
+        <Typography variant="h2" fontWeight="bold">
+          Realziacje w placówkach
+        </Typography>
         <List css={HomeViewCss.horizontalList}>
           {images.map((img, i) => (
             <ImageListItem key={i}>
               <Box
                 component="img"
-                style={{ width: "15rem" }}
+                style={{ width: "20rem" }}
                 src={img.img}
                 alt={img.title}
                 loading="lazy"

@@ -32,17 +32,26 @@ export const createTheme = (): MuiTheme => {
   const palette = createStandardPalette();
 
   return createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 1150,
+        lg: 1465,
+        xl: 1536,
+      },
+    },
     palette,
     typography: {
       fontFamily: "Outfit, sans-serif",
       h1: {
-        fontSize: "3.5rem",
+        fontSize: "2.82rem",
         fontWeight: "700",
         // lineHeight: 1.33,
         // marginBottom: "30px",
       },
       h2: {
-        fontSize: "2.5rem",
+        fontSize: "1.87rem",
         fontWeight: "500",
         lineHeight: 1.6,
       },
@@ -77,7 +86,7 @@ export const createTheme = (): MuiTheme => {
         lineHeight: 1.43,
       },
       body1: {
-        fontSize: "1.25rem",
+        fontSize: "0.93rem",
         fontWeight: 400,
         lineHeight: 1.43,
       },

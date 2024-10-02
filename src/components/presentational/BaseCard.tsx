@@ -13,12 +13,13 @@ const cardSizes = {
   xs: { width: "10rem", height: "10rem" },
   small: { width: "15rem", height: "15rem" },
   medium: { width: "18rem", height: "18rem" },
-  large: { width: "20rem", height: "20rem" },
+  large: { width: "16.25rem", height: "16.25rem" },
 };
 
 const BaseCardCss = {
   card: (theme: Theme, size: "xs" | "small" | "medium" | "large") =>
     css({
+      flexBasis: "calc(23.33% - 10px)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -39,7 +40,7 @@ const BaseCardCss = {
   cardContent: (theme: Theme) =>
     css({
       color: theme.palette.common.white,
-      maxWidth: "60%",
+      padding: "1rem",
     }),
 };
 
@@ -55,7 +56,13 @@ export const BaseCard = ({
     <Card data-testid="card" css={BaseCardCss.card(theme, size)}>
       {imgUrl && <CardMedia component="img" alt={title} image={imgUrl} />}
       <CardContent css={BaseCardCss.cardContent(theme)}>
-        <Typography variant="h3" paddingBottom="1rem">
+        <Typography
+          variant="h3"
+          paddingBottom="1rem"
+          fontWeight="600"
+          textTransform="uppercase"
+          fontSize="1.4rem"
+        >
           {title}
         </Typography>
         {pngIcon && <Box component="img" alt={pngIcon} src={pngIcon} />}

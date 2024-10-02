@@ -14,7 +14,16 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
   const { children, herSectionTitle, heroSectionSubtitle, buttonText, banner } = props;
 
   return (
-    <>
+    <Box
+      sx={{
+        width: { md: "100%", lg: "90rem" },
+        display: "flex",
+        flexDirection: "column",
+
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <HeroSection
         title={herSectionTitle}
         subtitle={heroSectionSubtitle}
@@ -24,20 +33,21 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
       <div css={PageCss.box}>
         <Box css={PageCss.pageContent}>{children}</Box>
       </div>
-    </>
+    </Box>
   );
 };
 
 const PageCss = {
   box: () =>
     css({
-      backgroundColor: "#FAFAFA",
-      padding: "4rem 6rem",
+      // backgroundColor: "#FAFAFA",
+      padding: "2rem 0",
       flex: 1,
       display: "flex",
     }),
   pageContent: () =>
     css({
+      borderRadius: "20px !important",
       flex: 1,
       backgroundColor: "white",
       padding: "4rem",

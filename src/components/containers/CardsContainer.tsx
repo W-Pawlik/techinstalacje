@@ -17,10 +17,11 @@ export const CardsContainer = ({ cardSize, cardsData }: CardsContainerProps) => 
   <Box
     display="flex"
     justifyContent="center"
-    gap="2rem"
+    gap="4rem"
     sx={{
-      flexDirection: { xs: "column", sm: "column", md: "row" },
-      alignItems: { xs: "center", sm: "center", md: "stretch" },
+      flexWrap: "wrap",
+      flexDirection: { sm: "column", md: "row" },
+      alignItems: { sm: "center", md: "stretch" },
       marginBottom: "5rem",
     }}
   >

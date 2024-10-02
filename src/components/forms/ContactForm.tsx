@@ -6,21 +6,18 @@ import { BaseNotification } from "../presentational/BaseNotification";
 import { CommonButton } from "../presentational/Button";
 
 const ContactFormCss = {
-  form: (theme: Theme) =>
+  form: () =>
     css({
       display: "flex",
       flexDirection: "column",
 
       gap: "0.7rem",
       alignItems: "stretch",
-      padding: "2rem 8rem",
-      backgroundColor: theme.palette.common.brandBlue,
+      // padding: "2rem 2rem",
       borderRadius: "20px",
-      width: "50%",
+      width: "38rem",
       textAlign: "center",
       "& button": {
-        backgroundColor: theme.palette.common.white,
-        color: theme.palette.common.brandBlue,
         width: "15rem",
         margin: "1.5rem 0",
         alignSelf: "center",
@@ -28,16 +25,17 @@ const ContactFormCss = {
     }),
   title: (theme: Theme) =>
     css({
-      color: theme.palette.common.white,
+      color: theme.palette.common.brandBlue,
       textTransform: "uppercase",
+      fontWeight: "bold",
     }),
   input: (theme: Theme) =>
     css({
       padding: "0.5rem 0.9rem",
       borderRadius: "8px",
-      border: "none",
       resize: "none",
       color: theme.palette.common.brandBlue,
+      border: `1px solid ${theme.palette.common.brandBlue}`,
       "&::placeholder": {
         color: theme.palette.common.brandBlue,
       },
@@ -99,7 +97,7 @@ export const ContactForm = () => {
 
   return (
     <>
-      <form ref={form} onSubmit={sendEmail} css={ContactFormCss.form(theme)}>
+      <form ref={form} onSubmit={sendEmail} css={ContactFormCss.form()}>
         <Typography variant="h2" css={ContactFormCss.title}>
           Formularz kontaktowy
         </Typography>
@@ -138,7 +136,7 @@ export const ContactForm = () => {
           css={ContactFormCss.input(theme)}
           style={{ height: "8rem" }}
         />
-        <CommonButton type="submit" text="Wyślij zapytanie" size="small" />
+        <CommonButton type="submit" text="Skontaktuj się z nami" size="small" />
       </form>
       {open && (
         <BaseNotification

@@ -2,9 +2,8 @@ import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 import { Box } from "@mui/material";
 import { CardsContainer } from "../../src/components/containers/CardsContainer";
-import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import { ContactForm } from "../../src/components/forms/ContactForm";
-import banner from "../assets/images/contactBanner.png";
+import banner from "../assets/images/ContactBanner.png";
 import AdresIcon from "../assets/images/iconAdres.png";
 import ContactIcon from "../assets/images/iconCall.png";
 import EmailIcon from "../assets/images/iconEmail.png";
@@ -16,6 +15,12 @@ const ContactViewCss = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      gap: "2.8rem",
+    }),
+  contactImg: () =>
+    css({
+      width: "35rem",
+      borderRadius: "20px",
     }),
 };
 
@@ -39,13 +44,9 @@ export const ContactView = () => {
 
   return (
     <Page herSectionTitle={"Kontakt"} heroSectionSubtitle={"Napisz do nas"} banner={banner}>
-      <TitleSubTitleContainer
-        title="Skontaktuj się z nami w celu ustalenia warunków współpracy!"
-        subtitle="Nie ważne czy przez maila, smsa czy rozmowę telefoniczną, ważne że jesteśmy otwarci na każdą propozycję i zwykle odpowiadamy jeszcze tego samego dnia."
-      />
-
       <Box css={ContactViewCss.formBox} ref={formRef}>
         <ContactForm />
+        <Box component="img" alt="contactImg" src={banner} css={ContactViewCss.contactImg} />
       </Box>
 
       <Box marginTop="5rem">
