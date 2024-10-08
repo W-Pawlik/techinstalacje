@@ -1,9 +1,8 @@
 import { css } from "@emotion/react";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { AppBar, Box, Theme, Typography } from "@mui/material";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/LogoTechInstalacje.svg";
 import { SocialMediaContainer } from "../containers/SocialMediaContainer";
 
@@ -61,11 +60,15 @@ const bottomBarCss = {
       marginLeft: "4rem",
       gap: "0.5rem",
     }),
-  navLink: () =>
+  navLink: (theme: Theme) =>
     css({
       textDecoration: "none",
       color: "#000000",
       fontWeight: "600",
+      "&.active": {
+        color: theme.palette.common.brandBlue,
+        fontWeight: "bold",
+      },
     }),
 };
 
@@ -77,9 +80,17 @@ const socialMediaIcons = [
 export const BottomBar = () => {
   const navItems = ["home", "oferta", "o nas", "kontakt", "realizacje"];
   const navigate = useNavigate();
+  const location = useLocation();
 
   const hanldeNavClick = (item: string) => {
-    navigate(`/${item}`);
+    const targetPath = `/${item}`;
+
+    if (location.pathname === targetPath) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate(targetPath);
+      window.scrollTo({ top: 0 });
+    }
   };
 
   return (

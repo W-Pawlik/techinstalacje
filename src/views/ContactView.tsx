@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 import { Box } from "@mui/material";
@@ -7,6 +8,7 @@ import banner from "../assets/images/ContactBanner.png";
 import AdresIcon from "../assets/images/iconAdres.png";
 import ContactIcon from "../assets/images/iconCall.png";
 import EmailIcon from "../assets/images/iconEmail.png";
+import TitleSubTitleContainer from "../components/containers/TitleSubTitleContainer";
 import { Page } from "../components/presentational/Page";
 
 const ContactViewCss = {
@@ -15,13 +17,13 @@ const ContactViewCss = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      gap: "2.8rem",
+      // gap: "2.8rem",
     }),
-  contactImg: () =>
-    css({
-      width: "35rem",
-      borderRadius: "20px",
-    }),
+  // contactImg: () =>
+  //   css({
+  //     width: "35rem",
+  //     borderRadius: "20px",
+  //   }),
 };
 
 export const ContactView = () => {
@@ -29,7 +31,8 @@ export const ContactView = () => {
 
   const scrollToTabs = () => {
     if (formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+      window.scrollTo({ top: 0, behavior: "instant" });
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -46,8 +49,13 @@ export const ContactView = () => {
     <Page herSectionTitle={"Kontakt"} heroSectionSubtitle={"Napisz do nas"} banner={banner}>
       <Box css={ContactViewCss.formBox} ref={formRef}>
         <ContactForm />
-        <Box component="img" alt="contactImg" src={banner} css={ContactViewCss.contactImg} />
+        {/* <Box component="img" alt="contactImg" src={banner} css={ContactViewCss.contactImg} /> */}
       </Box>
+
+      <TitleSubTitleContainer
+        title="Nasze realizacje tworzone są w zarówno w dużych jak i małych placówkach"
+        subtitle="Ispot, piekarnia jakaś tam, sklep Lorem impsum, nie żałują z naszych usług"
+      />
 
       <Box marginTop="5rem">
         <CardsContainer

@@ -52,7 +52,9 @@ export const OffertView = () => {
 
   const scrollToTabs = () => {
     if (tabsRef.current) {
-      tabsRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+      window.scrollTo({ top: 0, behavior: "instant" });
+
+      tabsRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 

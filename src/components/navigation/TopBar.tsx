@@ -1,20 +1,8 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  AppBar,
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Toolbar,
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { AppBar, Box, Divider, Drawer, IconButton, Theme, Toolbar } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/LogoTechInstalacje.svg";
 
 const topBarCss = {
@@ -30,14 +18,19 @@ const topBarCss = {
   navContainer: () =>
     css({
       display: "flex",
-      gap: "0.8rem",
+      gap: "0.5rem",
     }),
-  navButton: () =>
+  navLink: (theme: Theme) =>
     css({
       color: "#000",
       textTransform: "lowercase",
       fontWeight: "600",
       fontSize: "1.1rem",
+      textDecoration: "none",
+      "&.active": {
+        color: theme.palette.common.brandBlue,
+        fontWeight: "bold",
+      },
     }),
   logo: () =>
     css({
@@ -57,19 +50,32 @@ export const TopBar = () => {
 
   const hanldeNavClick = (item: string) => {
     navigate(`/${item}`);
+    window.scrollTo(0, 0);
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "start" }} onClick={() => hanldeNavClick(item)}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5rem",
+        paddingTop: "2rem",
+      }}
+    >
+      {navItems.map((item, index) => (
+        <React.Fragment key={item}>
+          <NavLink
+            css={topBarCss.navLink}
+            onClick={() => hanldeNavClick(item)}
+            key={index}
+            to={`/${item}`}
+          >
+            {item}
+          </NavLink>
+        </React.Fragment>
+      ))}
     </Box>
   );
 
@@ -92,14 +98,22 @@ export const TopBar = () => {
             sx={{ width: { xs: "10rem", md: "14rem" } }}
           />
         </IconButton>
-        <Box sx={{ display: { xs: "none", md: "flex" } }} css={topBarCss.navContainer}>
+        <Box
+          sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
+          css={topBarCss.navContainer}
+        >
           {navItems.map((item, index) => (
             <React.Fragment key={item}>
-              <Button size="medium" css={topBarCss.navButton} onClick={() => hanldeNavClick(item)}>
+              <NavLink
+                css={topBarCss.navLink}
+                onClick={() => hanldeNavClick(item)}
+                key={index}
+                to={`/${item}`}
+              >
                 {item}
-              </Button>
+              </NavLink>
               {index < navItems.length - 1 && (
-                <Divider orientation="vertical" flexItem variant="middle" />
+                <Divider orientation="vertical" flexItem variant="middle" sx={{ height: "2rem" }} />
               )}
             </React.Fragment>
           ))}

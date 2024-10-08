@@ -30,9 +30,9 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
         buttonText={buttonText}
         banner={banner}
       />
-      <div css={PageCss.box}>
+      <Box css={PageCss.box}>
         <Box css={PageCss.pageContent}>{children}</Box>
-      </div>
+      </Box>
     </Box>
   );
 };

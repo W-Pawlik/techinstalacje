@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import { ImageListItem, List, Typography } from "@mui/material";
 import { Box, useMediaQuery } from "@mui/system";
-import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import banner from "../assets/images/heroSectionBanner.png";
 import logo1 from "../assets/images/realization1.png";
 import logo2 from "../assets/images/realization2.png";
@@ -88,9 +87,9 @@ export const HomeView = () => {
 
   return (
     <Page
-      heroSectionSubtitle={"Perfekcyjna Instalacja"}
-      herSectionTitle={"Perfekcyjna Instalacja"}
-      buttonText="click"
+      herSectionTitle={"Instalacje tworzone z szczerej pasji"}
+      heroSectionSubtitle={"Wyrusz z nami w podróż perfekcyjnej współpracy"}
+      buttonText="Poznaj nas"
       banner={banner}
     >
       <Box css={HomeViewCss.headingCont}>
