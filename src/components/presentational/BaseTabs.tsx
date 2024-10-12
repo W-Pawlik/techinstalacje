@@ -69,7 +69,7 @@ const BaseTabsCss = {
     }),
 };
 
-export const BaseTabs: React.FC<BaseTabsProps> = ({ tabData }) => {
+export const BaseTabs = ({ tabData }: BaseTabsProps) => {
   const theme: Theme = useTheme();
   const navigate = useNavigate();
   const { offertTab } = useParams<{ offertTab?: string }>();

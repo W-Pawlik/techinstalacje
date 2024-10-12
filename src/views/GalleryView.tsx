@@ -1,10 +1,8 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { RealizationsTilesContainer } from "../../src/components/containers/RealizationsTilesContainer ";
 import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
-import { CommonButton } from "../../src/components/presentational/Button";
 import RealizationsBanner from "../assets/images/RealizationsBanner.png";
+import CTABottom from "../components/presentational/CTABottom";
 import { Page } from "../components/presentational/Page";
 
 const items = [
@@ -50,16 +48,12 @@ export const GalleryView = () => {
 
       <RealizationsTilesContainer items={items} />
 
-      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}>
-        <Typography
-          variant="h2"
-          sx={{ marginTop: "4rem", textAlign: "center", fontWeight: "bold" }}
-        >
-          Skontaktuj się z nami w celu ustalenia warunków itp. itd. (miesjce na zachęcenie do
-          kontaktu) lorem ipsum
-        </Typography>
-        <CommonButton text="Skontaktuj się z nami" onClick={handleClick} />
-      </Box>
+      <CTABottom
+        title="Skontaktuj się z nami w celu ustalenia warunków itp. itd. (miesjce na zachęcenie do
+          kontaktu) lorem ipsum"
+        buttonText="Skontaktu się z nami"
+        onButtonClick={handleClick}
+      />
     </Page>
   );
 };

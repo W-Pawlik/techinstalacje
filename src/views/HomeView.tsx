@@ -7,6 +7,7 @@ import logo2 from "../assets/images/realization2.png";
 import logo3 from "../assets/images/realization3.png";
 import smthImg from "../assets/images/smth (2).png";
 import { CardsContainer } from "../components/containers/CardsContainer";
+import ContentLImgR from "../components/containers/ContentLImgR";
 import ContentWithHeadingContainer from "../components/containers/ContentWithHeadingContainer";
 import { OffertTiles } from "../components/presentational/OffertTiles";
 import { Page } from "../components/presentational/Page";
@@ -92,25 +93,18 @@ export const HomeView = () => {
       buttonText="Poznaj nas"
       banner={banner}
     >
-      <Box css={HomeViewCss.headingCont}>
-        <Box css={HomeViewCss.headingText}>
-          <Typography variant="h2" textAlign="center" width="70%" fontWeight="bold">
-            TechInstalacje - nowoczesne rozwiązania to nasza pasja{" "}
-          </Typography>
-          <Typography variant="body1" fontSize="1rem">
-            Profesjonalne doradztwo, sprzedaż, montaż i obsługa serwisowa urządzeń i instalacji
-            wymaga nieustannego doskonalenia umiejętności. Dlatego uczestniczymy w szkoleniach
-            branżowych jak i produktowych wiodących marek. Dzięki kształceniu się w Szkole
-            Nowoczesnych Technik Grzewczych VIESSMANN, firma TECHINSTALACJE stała się specjalistą
-            branży Odnawialnych Źródeł Energii (OZE). Jako nieliczni możemy pochwalić się
-            certyfikatem Instalatora OZE. W 2020 roku zaplanowaliśmy zakończyć budowę DOMU
-            TESTOWEGO, w którym zaprezentujemy część rozwiązań, na jakie także Państwo będziecie
-            mogli się zdecydować. Jeśli szukacie wykwalifikowanych specjalistów w wyżej wymienionych
-            dziedzinach, zadzwońcie do Nas.
-          </Typography>
-        </Box>
-        <Box component="img" src={smthImg} alt="hey" css={HomeViewCss.headingImg} />
-      </Box>
+      <ContentLImgR
+        title="TechInstalacje - nowoczesne rozwiązania to nasza pasja"
+        content="Profesjonalne doradztwo, sprzedaż, montaż i obsługa serwisowa urządzeń i instalacji wymaga
+          nieustannego doskonalenia umiejętności. Dlatego uczestniczymy w szkoleniach branżowych jak
+          i produktowych wiodących marek. Dzięki kształceniu się w Szkole Nowoczesnych Technik
+          Grzewczych VIESSMANN, firma TECHINSTALACJE stała się specjalistą branży Odnawialnych
+          Źródeł Energii (OZE). Jako nieliczni możemy pochwalić się certyfikatem Instalatora OZE. W
+          2020 roku zaplanowaliśmy zakończyć budowę DOMU TESTOWEGO, w którym zaprezentujemy część
+          rozwiązań, na jakie także Państwo będziecie mogli się zdecydować. Jeśli szukacie
+          wykwalifikowanych specjalistów w wyżej wymienionych dziedzinach, zadzwońcie do Nas."
+        image={smthImg}
+      />
 
       <CardsContainer
         cardSize={cardSize}
