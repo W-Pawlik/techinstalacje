@@ -17,7 +17,6 @@ const heroSectionCss = {
       display: "flex",
       alignItems: "start",
       justifyContent: "center",
-      paddingLeft: "4rem",
       boxSizing: "border-box",
       width: "100%",
       height: "60vh",
@@ -28,6 +27,7 @@ const heroSectionCss = {
       background: `linear-gradient(90deg, #4c80ce8d 2%, rgba(115,115,115,0) 77%), url(${banner})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
     }),
   cardDescription: (theme: Theme) =>
     css({
@@ -37,7 +37,11 @@ const heroSectionCss = {
 };
 
 export const HeroSection = ({ title, subtitle, buttonText, banner }: HeroSectionProps) => (
-  <Box css={heroSectionCss.box(banner)} component="div">
+  <Box
+    css={heroSectionCss.box(banner)}
+    component="div"
+    sx={{ paddingLeft: { xs: "1.2rem", sm: "2rem", md: "4rem" } }}
+  >
     <Typography
       variant="h1"
       sx={{

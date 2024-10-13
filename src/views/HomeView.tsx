@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { css } from "@emotion/react";
 import { ImageListItem, List, Typography } from "@mui/material";
 import { Box, useMediaQuery } from "@mui/system";
@@ -58,19 +59,6 @@ const HomeViewCss = {
 };
 
 export const HomeView = () => {
-  const isLargeScreen = useMediaQuery("(min-width: 1400px)");
-  const isMediumScreen = useMediaQuery("(min-width: 1300px)");
-  const isSmallScreen = useMediaQuery("(min-width: 1150px)");
-  const isVerticalLayout = useMediaQuery("(max-width: 900px)");
-
-  const cardSize = isLargeScreen
-    ? "large"
-    : isMediumScreen || isVerticalLayout
-      ? "medium"
-      : isSmallScreen
-        ? "small"
-        : "xs";
-
   const images = [
     {
       title: "Ispot",
@@ -107,37 +95,30 @@ export const HomeView = () => {
       />
 
       <CardsContainer
-        cardSize={cardSize}
         cardsData={[
           {
             title: "Jakość",
-            textContent:
-              "Każdy projekt realizujemy z najwyższą starannością, dbając o najdrobniejsze szczegóły, aby zapewnić trwałość i perfekcyjne wykonanie",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
           {
             title: "Wykonanie",
-            textContent:
-              "Budujemy długotrwałe relacje oparte na zaufaniu i transparentności, dostarczając rozwiązania, które spełniają najwyższe standardy branżowe",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
           {
             title: "Zaufanie",
-            textContent:
-              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
           {
             title: "Profesjonalizm",
-            textContent:
-              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
           {
             title: "Terminowość",
-            textContent:
-              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
           {
             title: "Doradztwo",
-            textContent:
-              "Nasze doświadczenie i precyzyjne podejście gwarantują najwyższą jakość wykonania, niezależnie od skali projektu ",
+            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
           },
         ]}
       />
@@ -151,7 +132,7 @@ export const HomeView = () => {
             <ImageListItem key={i}>
               <Box
                 component="img"
-                style={{ width: "20rem" }}
+                sx={{ width: { xs: "5rem", sm: "7rem", md: "10rem", lg: "14rem", xl: "16rem" } }}
                 src={img.img}
                 alt={img.title}
                 loading="lazy"
@@ -161,16 +142,16 @@ export const HomeView = () => {
         </List>
       </Box>
 
-      <ContentWithHeadingContainer
+      {/* <ContentWithHeadingContainer
         title="Prześledź wszystkie kroki"
         subtitle="Jak przebiega nasza współpraca?"
         content={<VerticalStepper />}
         titlePosition="right"
         marginBottom="10rem"
         height="25rem"
-      />
+      /> */}
 
-      <ContentWithHeadingContainer
+      {/* <ContentWithHeadingContainer
         title="Poznaj naszą ofertę"
         subtitle="Dlaczego TechInstalacje?"
         content={
@@ -182,7 +163,7 @@ export const HomeView = () => {
         }
       />
 
-      <OffertTiles />
+      <OffertTiles /> */}
     </Page>
   );
 };

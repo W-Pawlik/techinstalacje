@@ -59,7 +59,6 @@ export const ContactView = () => {
 
       <Box marginTop="5rem">
         <CardsContainer
-          cardSize="medium"
           cardsData={[
             {
               title: "Adres",

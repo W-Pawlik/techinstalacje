@@ -16,7 +16,7 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
   return (
     <Box
       sx={{
-        width: { md: "100%", lg: "90rem" },
+        width: { lg: "100%", xl: "90rem" },
         display: "flex",
         flexDirection: "column",
 
@@ -31,7 +31,9 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
         banner={banner}
       />
       <Box css={PageCss.box}>
-        <Box css={PageCss.pageContent}>{children}</Box>
+        <Box css={PageCss.pageContent} sx={{ padding: { xs: "2rem", sm: "3rem", md: "4rem" } }}>
+          {children}
+        </Box>
       </Box>
     </Box>
   );

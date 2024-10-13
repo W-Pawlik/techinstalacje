@@ -15,33 +15,43 @@ const AboutCard = ({ name, description, imageUrl }: AboutCardProps) => {
       sx={{
         display: "flex",
         borderRadius: "16px",
-        maxWidth: 600,
+        maxWidth: 700,
       }}
     >
       <Box
         sx={{
-          // backgroundColor: "#3f81f1",
           color: "#fff",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", sm: "row" },
           justifyContent: "center",
           padding: "1.5rem",
-          alignItems: "end",
-          // flexGrow: 1,
+          alignItems: { xs: "center", sm: "end" },
         }}
       >
-        <Box component="img" src={imageUrl} />
+        <Box
+          component="img"
+          src={imageUrl}
+          sx={{
+            width: { xs: "10rem", sm: "8rem" },
+            // height: { xs: "10rem", sm: "8rem" },
+            transform: { xs: "translateY(3rem)", sm: "none" },
+            zIndex: "0",
+          }}
+        />
         <Box
           sx={{
+            zIndex: "1",
             backgroundColor: theme.palette.common.brandBlue,
             height: "60%",
-            borderBottomRightRadius: "12.5px",
-            borderTopRightRadius: "12.5px",
+            borderBottomRightRadius: "12.5px !important",
+            borderTopRightRadius: "12.5px !important",
             display: "flex",
             flexDirection: "column",
             justifyContent: "end",
             paddingLeft: "1rem",
             paddingBottom: "2.5rem",
+            paddingTop: { xs: "1.5rem", sm: "0" },
+            borderRadius: { xs: "12.5px", sm: "0" },
           }}
         >
           <Typography variant="h2" sx={{ fontWeight: "bold", fontSize: "1.4rem" }}>

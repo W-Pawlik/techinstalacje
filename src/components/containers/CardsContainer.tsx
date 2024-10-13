@@ -9,20 +9,22 @@ interface CardData {
 }
 
 interface CardsContainerProps {
-  cardSize: "xs" | "small" | "medium" | "large";
   cardsData: CardData[];
 }
 
-export const CardsContainer = ({ cardSize, cardsData }: CardsContainerProps) => (
+export const CardsContainer = ({ cardsData }: CardsContainerProps) => (
   <Box
     display="flex"
     justifyContent="center"
-    gap="4rem"
     sx={{
+      gap: { xs: "1.5rem", sm: "2rem", md: "3rem", lg: "4rem" },
       flexWrap: "wrap",
-      flexDirection: { sm: "column", md: "row" },
       alignItems: { sm: "center", md: "stretch" },
       marginBottom: "5rem",
+      flex: {
+        xs: "1 1 calc(50% - 2rem)",
+        md: "1 1 calc(33.33% - 2rem)",
+      },
     }}
   >
     {cardsData.map((card, index) => (
@@ -30,7 +32,6 @@ export const CardsContainer = ({ cardSize, cardsData }: CardsContainerProps) => 
         key={index}
         title={card.title}
         textContent={card.textContent}
-        size={cardSize}
         pngIcon={card.pngIcon}
       />
     ))}

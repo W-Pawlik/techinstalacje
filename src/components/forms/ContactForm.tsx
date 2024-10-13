@@ -22,6 +22,19 @@ const ContactFormCss = {
         margin: "1.5rem 0",
         alignSelf: "center",
       },
+      "@media (max-width: 650px)": {
+        // alignItems: "center",
+        width: "20rem",
+      },
+      // "@media (max-width: 850px)": {
+      //   // alignItems: "center",
+      //   width: "30rem",
+      // },
+
+      // "@media (max-width: 1465px)": {
+      //   // alignItems: "center",
+      //   width: "18rem",
+      // },
     }),
   title: (theme: Theme) =>
     css({

@@ -80,7 +80,7 @@ export const TopBar = () => {
   );
 
   return (
-    <AppBar css={topBarCss.appBar} component="nav" sx={{ width: { md: "100%", lg: "90rem" } }}>
+    <AppBar css={topBarCss.appBar} component="nav" sx={{ Width: { md: "100%", lg: "90rem" } }}>
       <Toolbar css={topBarCss.toolBar}>
         <IconButton
           onClick={() => {

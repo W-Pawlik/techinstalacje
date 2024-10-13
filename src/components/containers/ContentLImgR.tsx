@@ -22,6 +22,7 @@ const ContentLImgRCss = {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+
       gap: "4rem",
     }),
   headingImg: () =>
@@ -33,16 +34,39 @@ const ContentLImgRCss = {
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const ContentLImgR: React.FC<ContentLImgRProps> = ({ title, content, image }) => (
-  <Box css={ContentLImgRCss.headingCont}>
+  <Box
+    css={ContentLImgRCss.headingCont}
+    sx={{ flexDirection: { xs: "column", sm: "column", lg: "row" } }}
+  >
     <Box css={ContentLImgRCss.headingText}>
-      <Typography variant="h2" textAlign="center" width="70%" fontWeight="bold">
+      <Typography
+        variant="h2"
+        textAlign="center"
+        sx={{ width: { sm: "50%", md: "70%" } }}
+        fontWeight="bold"
+      >
         {title}
       </Typography>
-      <Typography variant="body1" fontSize="1rem">
+      <Typography
+        variant="body1"
+        fontSize="1rem"
+        sx={{
+          alignItems: "end",
+          display: "flex",
+          justifyContent: "stretch",
+          wordBreak: "break-all",
+        }}
+      >
         {content}
       </Typography>
     </Box>
-    <Box component="img" src={image} alt="hey" css={ContentLImgRCss.headingImg} />
+    <Box
+      component="img"
+      src={image}
+      alt="hey"
+      sx={{ alignSelf: { lg: "center" } }}
+      css={ContentLImgRCss.headingImg}
+    />
   </Box>
 );
 

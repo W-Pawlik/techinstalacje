@@ -19,6 +19,7 @@ import {
   tabsClasses,
   Theme as MuiTheme,
 } from "@mui/material";
+import { createBreakpoints } from "@mui/system";
 import { createStandardPalette } from "./standardPallete";
 
 import "@emotion/react";
@@ -30,15 +31,24 @@ declare module "@emotion/react" {
 
 export const createTheme = (): MuiTheme => {
   const palette = createStandardPalette();
+  const breakpoints = createBreakpoints({
+    values: {
+      xs: 0,
+      sm: 500,
+      md: 850,
+      lg: 1150,
+      xl: 1465,
+    },
+  });
 
   return createMuiTheme({
     breakpoints: {
       values: {
         xs: 0,
-        sm: 600,
-        md: 1150,
-        lg: 1465,
-        xl: 1536,
+        sm: 500,
+        md: 850,
+        lg: 1150,
+        xl: 1465,
       },
     },
     palette,
@@ -49,11 +59,17 @@ export const createTheme = (): MuiTheme => {
         fontWeight: "700",
         // lineHeight: 1.33,
         // marginBottom: "30px",
+        [breakpoints.down("sm")]: {
+          fontSize: "1.63rem",
+        },
       },
       h2: {
         fontSize: "1.87rem",
         fontWeight: "500",
         lineHeight: 1.6,
+        [breakpoints.down("sm")]: {
+          fontSize: "1.25rem",
+        },
       },
       h3: {
         fontSize: "2.5rem",
@@ -94,6 +110,12 @@ export const createTheme = (): MuiTheme => {
         fontSize: "1rem",
         fontWeight: 400,
         lineHeight: 1.71,
+        [breakpoints.down("sm")]: {
+          fontSize: "0.5rem",
+        },
+        [breakpoints.down("md")]: {
+          fontSize: "0.8rem",
+        },
       },
       caption: {
         fontSize: "0.75rem",

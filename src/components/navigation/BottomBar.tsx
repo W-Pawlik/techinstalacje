@@ -43,6 +43,7 @@ const bottomBarCss = {
       display: "flex",
       flexDirection: "column",
       alignItems: "start",
+      textAlign: "start",
       gap: "0.5rem",
     }),
   footerTopLeft: () =>
@@ -94,9 +95,19 @@ export const BottomBar = () => {
   };
 
   return (
-    <AppBar component="footer" css={bottomBarCss.footer}>
-      <Box css={bottomBarCss.footerTopContent}>
-        <Box css={bottomBarCss.footerTopLeft}>
+    <AppBar
+      component="footer"
+      css={bottomBarCss.footer}
+      sx={{ padding: { xs: "1rem", sm: "5rem" } }}
+    >
+      <Box
+        css={bottomBarCss.footerTopContent}
+        sx={{
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: { xs: "start", sm: "center" },
+        }}
+      >
+        <Box css={bottomBarCss.footerTopLeft} sx={{ paddingBottom: { xs: "2rem" } }}>
           <Box component="img" src={logo} alt="logo" css={bottomBarCss.logoImg} />
           <Box css={bottomBarCss.contactCont}>
             <Typography variant="body1" sx={{ fontWeight: "600", fontSize: "1.1rem" }}>
@@ -113,7 +124,16 @@ export const BottomBar = () => {
             </Typography>
           </Box>
         </Box>
-        <Box component="nav" css={bottomBarCss.nav}>
+        <Box
+          component="nav"
+          css={bottomBarCss.nav}
+          sx={{
+            width: "100%",
+            marginLeft: { xs: "0", sm: "4rem" },
+            borderTop: { xs: "solid 1px #D9D9D9", sm: "none" },
+            paddingTop: { xs: "2rem", sm: "none" },
+          }}
+        >
           {navItems.map((item, index) => (
             <NavLink
               css={bottomBarCss.navLink}
