@@ -1,10 +1,11 @@
 import { css } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import offert1 from "../../assets/images/offert1.jpg";
 import offert2 from "../../assets/images/offert2.jpg";
 import offert3 from "../../assets/images/offert3.jpg";
 import offert4 from "../../assets/images/offert4.jpg";
+import { width } from "@mui/system";
 
 const tileData = [
   {
@@ -37,8 +38,6 @@ const tileStyles = {
   }),
   tile: css({
     position: "relative",
-    width: "17rem",
-    height: "22rem",
     overflow: "hidden",
     transition: "transform 0.3s ease",
     "&:hover": {
@@ -47,11 +46,21 @@ const tileStyles = {
       },
       "& .title": {
         transform: "translateY(-190px)",
+        "@media (max-width: 500px) and (min-width: 0px)": {
+          transform: "translateY(-120px)",
+        },
       },
       "& .description": {
         transform: "translateY(-150px)",
         opacity: 1,
+        "@media (max-width: 500px) and (min-width: 0px)": {
+          transform: "translateY(-90px)",
+        },
       },
+    },
+    "@media (max-width: 1215px) and (min-width: 940px)": {
+      flex: "1 1 calc(50% - 1rem)", // Dla szerokości okna od 940px do 1215px
+      maxWidth: "calc(50% - 1rem)", // Ustaw dwie kafelki w rzędzie
     },
   }),
   image: css({
@@ -117,7 +126,11 @@ export const OffertTiles = () => {
   return (
     <Box css={tileStyles.tileContainer}>
       {tileData.map((tile, index) => (
-        <Box css={tileStyles.tile} key={index}>
+        <Box
+          css={tileStyles.tile}
+          key={index}
+          sx={{ width: { xs: "20rem", sm: "17rem" }, height: { xs: "11rem", sm: "22rem" } }}
+        >
           <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} />
           <Box className="overlay" css={tileStyles.overlay} />
           <Typography className="title" css={tileStyles.title}>

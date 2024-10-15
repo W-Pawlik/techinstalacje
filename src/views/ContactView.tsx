@@ -59,6 +59,7 @@ export const ContactView = () => {
 
       <Box marginTop="5rem">
         <CardsContainer
+          responsiveColumn="column"
           cardsData={[
             {
               title: "Adres",

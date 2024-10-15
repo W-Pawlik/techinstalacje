@@ -40,7 +40,7 @@ export default function VerticalStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
+    <Box>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
@@ -54,7 +54,7 @@ export default function VerticalStepper() {
               <Typography variant="h4">{step.label}</Typography>
             </StepLabel>
             <StepContent>
-              <Typography variant="body1">{step.description}</Typography>
+              <Typography variant="body2">{step.description}</Typography>
               <Box sx={{ mb: 2 }}>
                 <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
                   {index === steps.length - 1 ? "Zakończ" : "Następny krok"}
@@ -69,7 +69,7 @@ export default function VerticalStepper() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>
+          <Typography variant="body2">
             Jeżeli klient nie ma zastrzeżeń, to pomyślnie zakańczamy współprace.
           </Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>

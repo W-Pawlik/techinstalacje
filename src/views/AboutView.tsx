@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import banner from "../assets/images/aboutViewBanner.png";
@@ -28,8 +29,20 @@ export const AboutView = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
+        <Typography
+          sx={{
+            borderBottom: "thin solid #d8d8d8",
+            width: "100%",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+          variant="h2"
+        >
+          Nasz lider
+        </Typography>
         <AboutCard
           name="Krzysztof Jarzyna"
           description="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"

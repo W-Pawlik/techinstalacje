@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
 import { BaseTabs } from "../../src/components/presentational/BaseTabs";
 import { CommonButton } from "../../src/components/presentational/Button";
 import banner from "../assets/images/offertBanner.png";

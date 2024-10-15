@@ -9,17 +9,19 @@ interface CardData {
 }
 
 interface CardsContainerProps {
+  responsiveColumn?: string;
   cardsData: CardData[];
 }
 
-export const CardsContainer = ({ cardsData }: CardsContainerProps) => (
+export const CardsContainer = ({ cardsData, responsiveColumn }: CardsContainerProps) => (
   <Box
     display="flex"
     justifyContent="center"
     sx={{
+      flexDirection: { xs: `${responsiveColumn}`, sm: "row" },
       gap: { xs: "1.5rem", sm: "2rem", md: "3rem", lg: "4rem" },
       flexWrap: "wrap",
-      alignItems: { sm: "center", md: "stretch" },
+      alignItems: { xs: "center", sm: "center", md: "stretch" },
       marginBottom: "5rem",
       flex: {
         xs: "1 1 calc(50% - 2rem)",

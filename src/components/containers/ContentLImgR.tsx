@@ -22,8 +22,6 @@ const ContentLImgRCss = {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-
-      gap: "4rem",
     }),
   headingImg: () =>
     css({
@@ -38,11 +36,11 @@ const ContentLImgR: React.FC<ContentLImgRProps> = ({ title, content, image }) =>
     css={ContentLImgRCss.headingCont}
     sx={{ flexDirection: { xs: "column", sm: "column", lg: "row" } }}
   >
-    <Box css={ContentLImgRCss.headingText}>
+    <Box css={ContentLImgRCss.headingText} sx={{ gap: { xs: "1rem", sm: "2rem", md: "3rem" } }}>
       <Typography
         variant="h2"
         textAlign="center"
-        sx={{ width: { sm: "50%", md: "70%" } }}
+        sx={{ width: { xs: "100%", sm: "50%", md: "70%" }, borderBottom: "thin solid #d8d8d8" }}
         fontWeight="bold"
       >
         {title}

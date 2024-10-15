@@ -14,10 +14,9 @@ interface ContentWithHeadingContainerProps {
 const contentWithHeadingContainerCss = {
   mainBox: css({
     display: "flex",
-    alignItems: "start",
     justifyContent: "center",
     gap: "3rem",
-    width: "100%",
+    // width: "100%",
   }),
 };
 
@@ -27,7 +26,7 @@ const ContentWithHeadingContainer: React.FC<ContentWithHeadingContainerProps> = 
   content,
   titlePosition = "left",
   marginBottom = "2rem",
-  height = "auto",
+  // height = "auto",
 }) => {
   const isTitleLeft = titlePosition === "left";
 
@@ -35,15 +34,19 @@ const ContentWithHeadingContainer: React.FC<ContentWithHeadingContainerProps> = 
     <Box
       flexDirection={isTitleLeft ? "row" : "row-reverse"}
       marginBottom={marginBottom}
-      height={height}
+      // height={height}
       css={contentWithHeadingContainerCss.mainBox}
+      sx={{
+        flexDirection: { xs: "column", sm: "column", md: `${isTitleLeft ? "row" : "row-reverse"}` },
+        alignItems: { xs: "center", sm: "center", md: "start" },
+      }}
     >
-      <Box width="40%">
-        <Typography variant="h3">{subtitle}</Typography>
+      <Box>
+        <Typography variant="h2">{subtitle}</Typography>
         <Typography variant="h1">{title}</Typography>
       </Box>
 
-      <Typography variant="body1" width="25%">
+      <Typography variant="body1" sx={{ maxWidth: { xs: "70%", sm: "70%", md: "40%" } }}>
         {content}
       </Typography>
     </Box>

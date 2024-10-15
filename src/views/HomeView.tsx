@@ -142,16 +142,16 @@ export const HomeView = () => {
         </List>
       </Box>
 
-      {/* <ContentWithHeadingContainer
+      <ContentWithHeadingContainer
         title="Prześledź wszystkie kroki"
         subtitle="Jak przebiega nasza współpraca?"
         content={<VerticalStepper />}
         titlePosition="right"
         marginBottom="10rem"
         height="25rem"
-      /> */}
+      />
 
-      {/* <ContentWithHeadingContainer
+      <ContentWithHeadingContainer
         title="Poznaj naszą ofertę"
         subtitle="Dlaczego TechInstalacje?"
         content={
@@ -163,7 +163,7 @@ export const HomeView = () => {
         }
       />
 
-      <OffertTiles /> */}
+      <OffertTiles />
     </Page>
   );
 };

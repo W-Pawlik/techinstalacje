@@ -42,7 +42,7 @@ export const Page = (props: PropsWithChildren<PageProps>): JSX.Element => {
 const PageCss = {
   box: () =>
     css({
-      // backgroundColor: "#FAFAFA",
+      backgroundColor: "#FAFAFA",
       padding: "2rem 0",
       flex: 1,
       display: "flex",

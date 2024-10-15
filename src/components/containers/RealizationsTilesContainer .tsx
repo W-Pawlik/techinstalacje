@@ -8,9 +8,7 @@ interface RealizationsTilesContainerProps {
 const containerStyles = css({
   display: "flex",
   flexWrap: "wrap",
-  gap: "5rem",
   justifyContent: "center",
-  padding: "0 6rem",
 });
 
 const tileStyles = css({
@@ -24,7 +22,10 @@ const tileStyles = css({
 });
 
 export const RealizationsTilesContainer = ({ items }: RealizationsTilesContainerProps) => (
-  <Box css={containerStyles}>
+  <Box
+    css={containerStyles}
+    sx={{ padding: { xs: "0 2rem" }, gap: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" } }}
+  >
     {items.map((item, index) => (
       <Box key={index} css={tileStyles}>
         <GalleryTile {...item} />

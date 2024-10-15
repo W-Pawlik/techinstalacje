@@ -98,7 +98,7 @@ export const BottomBar = () => {
     <AppBar
       component="footer"
       css={bottomBarCss.footer}
-      sx={{ padding: { xs: "1rem", sm: "5rem" } }}
+      sx={{ padding: { xs: "1rem", sm: "5rem" }, paddingBottom: "0 !important" }}
     >
       <Box
         css={bottomBarCss.footerTopContent}

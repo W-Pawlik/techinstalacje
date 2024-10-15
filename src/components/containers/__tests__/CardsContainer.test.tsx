@@ -11,7 +11,7 @@ describe("CardsContainer component testes", () => {
     ];
     render(
       <TestingProvider>
-        <CardsContainer cardSize="medium" cardsData={cardsData} />
+        <CardsContainer cardsData={cardsData} />
       </TestingProvider>,
     );
 

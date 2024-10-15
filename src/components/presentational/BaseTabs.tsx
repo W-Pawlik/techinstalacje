@@ -1,6 +1,16 @@
 import React from "react";
 import { css } from "@emotion/react";
-import { Box, Tab, Tabs, Theme, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Tab,
+  Tabs,
+  Theme,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 
 interface TabData {
@@ -78,6 +88,12 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
     navigate(`/oferta/${newValue}`, { replace: true });
   };
 
+  const handleSelectChange = (event: SelectChangeEvent<string>) => {
+    const newValue = event.target.value;
+    navigate(`/oferta/${newValue}`, { replace: true });
+    // setSelectedTab(newValue);
+  };
+
   const currentTab =
     tabData.find((tab) => tab.tabTitle === offertTab)?.tabTitle || tabData[0].tabTitle;
 
@@ -92,6 +108,7 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
         variant="fullWidth"
         textColor="inherit"
         sx={{
+          display: { xs: "none", sm: "none", md: "block" },
           "& .MuiTabs-scroller": {
             overflow: "visible !important",
           },
@@ -128,17 +145,52 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
                 height: "4rem",
                 content: `"${tab.tabTitle}"`,
                 color: "white",
+                "@media (max-width: 1000px) and (min-width: 850px)": {
+                  width: "12rem",
+                  height: "3.25rem",
+                  bottom: "-0.15rem",
+                },
+                "@media (max-width: 1150px) and (min-width: 1000px)": {
+                  width: "14rem",
+                  height: "3.5rem",
+                  bottom: "-0.20rem",
+                },
+                "@media (max-width: 1465px) and (min-width: 1150px)": {
+                  width: "18rem",
+                  height: "3.5rem",
+                  bottom: "-0.2rem",
+                },
               },
             }}
           />
         ))}
       </Tabs>
+      <Select
+        value={currentTab}
+        onChange={handleSelectChange}
+        fullWidth
+        displayEmpty
+        variant="outlined"
+        sx={{
+          marginBottom: "1rem",
+          display: { xs: "flex", sm: "flex", md: "none" },
+        }}
+      >
+        {tabData.map((tab) => (
+          <MenuItem key={tab.tabTitle} value={tab.tabTitle}>
+            {tab.tabTitle}
+          </MenuItem>
+        ))}
+      </Select>
       <Box width="100%">
         {tabData.map((tab, index) =>
           tab.tabTitle === currentTab ? (
             <Box key={tab.tabTitle} css={BaseTabsCss.tabContainer(theme, index % 2 === 0)}>
               <Box
-                sx={{ width: "30rem", height: "30rem" }}
+                sx={{
+                  width: { xs: "5rem", sm: "10rem", md: "15rem", lg: "25rem", xl: "30rem" },
+                  height: { xs: "5rem", sm: "10rem", md: "16rem", lg: "25rem", xl: "30rem" },
+                }}
                 component="img"
                 src={tab.tabPicture}
                 alt={tab.tabTitle}
@@ -149,8 +201,11 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
                 display="flex"
                 flexDirection="column"
                 gap="1.5rem"
-                padding="0 4rem"
                 justifyContent="center"
+                sx={{
+                  padding: { xs: "0 1rem", sm: " 0 2rem", md: "0 3rem", lg: "0 4rem" },
+                  gap: { sm: "0", md: "0" },
+                }}
               >
                 <Typography
                   variant="h2"
@@ -160,7 +215,10 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
                 >
                   {tab.tabTitle}
                 </Typography>
-                <Typography variant="body2" width="30rem">
+                <Typography
+                  variant="body2"
+                  sx={{ width: { xs: "100%", sm: "100%", md: "30rem", lg: "30rem" } }}
+                >
                   {tab.tabContent}
                 </Typography>
               </Box>

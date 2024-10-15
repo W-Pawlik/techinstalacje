@@ -10,10 +10,6 @@ const GalleryTileCss = {
   tileContainer: () =>
     css({
       position: "relative",
-      // width: "40rem",
-      // height: "25rem",
-      width: "100%",
-      height: "25rem",
       display: "flex",
       alignItems: "flex-end",
       color: "white",
@@ -51,7 +47,10 @@ const GalleryTileCss = {
 };
 
 export const GalleryTile = ({ title, description, imageSrc }: GalleryTileInterface) => (
-  <Card css={GalleryTileCss.tileContainer()}>
+  <Card
+    css={GalleryTileCss.tileContainer()}
+    sx={{ width: { xs: "90%", sm: "100%" }, height: { xs: "14rem", sm: "15rem" } }}
+  >
     <CardMedia component="img" image={imageSrc} alt={title} css={GalleryTileCss.tileImage()} />
 
     <CardContent className="card-content" css={GalleryTileCss.title()}>
