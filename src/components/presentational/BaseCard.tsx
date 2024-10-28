@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-logical-operator-over-ternary */
 import { Box, Card, CardContent, CardMedia, css, Theme, Typography, useTheme } from "@mui/material";
 
 export interface BaseCardInterface {
@@ -5,6 +6,9 @@ export interface BaseCardInterface {
   textContent?: string;
   imgUrl?: string;
   pngIcon?: string;
+  xsWidth?: string;
+  smWidth?: string;
+  smHeight?: string;
 }
 
 const BaseCardCss = {
@@ -13,7 +17,7 @@ const BaseCardCss = {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "start",
       borderRadius: "20px",
       textAlign: "center",
       backgroundColor: theme.palette.common.brandBlue,
@@ -28,6 +32,7 @@ const BaseCardCss = {
     css({
       display: "flex",
       height: "100%",
+      width: "100%",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "start",
@@ -36,15 +41,35 @@ const BaseCardCss = {
     }),
 };
 
-export const BaseCard = ({ title, textContent, imgUrl, pngIcon }: BaseCardInterface) => {
+export const BaseCard = ({
+  title,
+  textContent,
+  imgUrl,
+  pngIcon,
+  xsWidth,
+  smWidth,
+  smHeight,
+}: BaseCardInterface) => {
   const theme: Theme = useTheme();
   return (
     <Card
       data-testid="card"
       css={BaseCardCss.card(theme)}
       sx={{
-        width: { xs: "6.8rem", sm: "8rem", md: "10rem", lg: "17rem", xl: "18rem" },
-        height: { xs: "6.8rem", sm: "8rem", md: "10rem", lg: "17rem", xl: "18rem" },
+        width: {
+          xs: `${xsWidth ? xsWidth : "13rem"}`,
+          sm: `${smWidth ? smWidth : "13rem"}`,
+          md: "12rem",
+          lg: "17rem",
+          xl: "18rem",
+        },
+        height: {
+          xs: "13rem",
+          sm: `${smHeight ? smHeight : "11rem"}`,
+          md: "14rem",
+          lg: "17rem",
+          xl: "18rem",
+        },
         padding: { xs: "1rem", sm: "3.5rem", md: "3rem", lg: "2rem", xl: "2rem" },
       }}
     >
@@ -62,7 +87,9 @@ export const BaseCard = ({ title, textContent, imgUrl, pngIcon }: BaseCardInterf
         >
           {title}
         </Typography>
-        {pngIcon && <Box component="img" alt={pngIcon} src={pngIcon} />}
+        {pngIcon && (
+          <Box component="img" alt={pngIcon} src={pngIcon} sx={{ marginBottom: "0.65rem" }} />
+        )}
         <Typography
           variant="body2"
           textAlign="start"
@@ -70,6 +97,7 @@ export const BaseCard = ({ title, textContent, imgUrl, pngIcon }: BaseCardInterf
             wordBreak: "break-all",
             fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem", lg: "1.2rem" },
             lineHeight: { xs: "1.3" },
+            whiteSpace: "pre-line",
           }}
         >
           {textContent}

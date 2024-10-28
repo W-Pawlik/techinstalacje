@@ -24,7 +24,7 @@ const tileStyles = css({
 export const RealizationsTilesContainer = ({ items }: RealizationsTilesContainerProps) => (
   <Box
     css={containerStyles}
-    sx={{ padding: { xs: "0 2rem" }, gap: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" } }}
+    sx={{ padding: { xs: "0 0" }, gap: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" } }}
   >
     {items.map((item, index) => (
       <Box key={index} css={tileStyles}>

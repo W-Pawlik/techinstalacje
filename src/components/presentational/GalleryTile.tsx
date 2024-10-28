@@ -49,7 +49,10 @@ const GalleryTileCss = {
 export const GalleryTile = ({ title, description, imageSrc }: GalleryTileInterface) => (
   <Card
     css={GalleryTileCss.tileContainer()}
-    sx={{ width: { xs: "90%", sm: "100%" }, height: { xs: "14rem", sm: "15rem" } }}
+    sx={{
+      width: { xs: "100%", sm: "28rem", md: "45rem", xl: "100%" },
+      height: { xs: "18rem", sm: "18rem", md: "25rem", xl: "25rem" },
+    }}
   >
     <CardMedia component="img" image={imageSrc} alt={title} css={GalleryTileCss.tileImage()} />
 

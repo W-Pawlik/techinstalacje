@@ -21,10 +21,12 @@ const CTABottom = ({
     <Typography variant="h2" sx={{ marginTop: "4rem", textAlign: "center", fontWeight: "bold" }}>
       {title}
     </Typography>
-    <CommonButton text={buttonText} onClick={onButtonClick} />
-    {secondButtonText && onSecondButtonClick && (
-      <CommonButton text={secondButtonText} onClick={onSecondButtonClick} />
-    )}
+    <Box display="flex" flexDirection="column" gap="1rem">
+      <CommonButton text={buttonText} onClick={onButtonClick} />
+      {secondButtonText && onSecondButtonClick && (
+        <CommonButton text={secondButtonText} onClick={onSecondButtonClick} />
+      )}
+    </Box>
   </Box>
 );
 

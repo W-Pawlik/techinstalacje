@@ -24,7 +24,7 @@ const ContactFormCss = {
       },
       "@media (max-width: 650px)": {
         // alignItems: "center",
-        width: "20rem",
+        width: "18rem",
       },
       // "@media (max-width: 850px)": {
       //   // alignItems: "center",

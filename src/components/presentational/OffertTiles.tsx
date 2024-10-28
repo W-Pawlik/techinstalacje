@@ -1,34 +1,7 @@
 import { css } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import offert1 from "../../assets/images/offert1.jpg";
-import offert2 from "../../assets/images/offert2.jpg";
-import offert3 from "../../assets/images/offert3.jpg";
-import offert4 from "../../assets/images/offert4.jpg";
-import { width } from "@mui/system";
-
-const tileData = [
-  {
-    title: "Instalacje",
-    imageUrl: offert1,
-    description: "Profesjonalne instalacje gazowe dla dużych obiektów",
-  },
-  {
-    title: "Hydraulika",
-    imageUrl: offert2,
-    description: "Profesjonalne instalacje gazowe dla dużych obiektów",
-  },
-  {
-    title: "Fotowoltaika",
-    imageUrl: offert3,
-    description: "Profesjonalne instalacje gazowe dla dużych obiektów",
-  },
-  {
-    title: "Wentylacje",
-    imageUrl: offert4,
-    description: "Profesjonalne instalacje gazowe dla dużych obiektów",
-  },
-];
+import { tileData } from "../../consts/texts/homeView/tileData";
 
 const tileStyles = {
   tileContainer: css({
@@ -45,7 +18,7 @@ const tileStyles = {
         opacity: 0.8,
       },
       "& .title": {
-        transform: "translateY(-190px)",
+        transform: "translateY(-300px)",
         "@media (max-width: 500px) and (min-width: 0px)": {
           transform: "translateY(-120px)",
         },
@@ -54,13 +27,18 @@ const tileStyles = {
         transform: "translateY(-150px)",
         opacity: 1,
         "@media (max-width: 500px) and (min-width: 0px)": {
-          transform: "translateY(-90px)",
+          transform: "translateY(-50px)",
+        },
+      },
+      "& .btn": {
+        "@media (max-width: 500px) and (min-width: 0px)": {
+          transform: "translateY(-34px)",
         },
       },
     },
     "@media (max-width: 1215px) and (min-width: 940px)": {
-      flex: "1 1 calc(50% - 1rem)", // Dla szerokości okna od 940px do 1215px
-      maxWidth: "calc(50% - 1rem)", // Ustaw dwie kafelki w rzędzie
+      flex: "1 1 calc(50% - 1rem)",
+      maxWidth: "calc(50% - 1rem)",
     },
   }),
   image: css({
@@ -93,7 +71,7 @@ const tileStyles = {
     left: "10px",
     color: "white",
     fontSize: "1rem",
-    transition: "transform 0.5s ease, opacity 1s ease",
+    transition: "transform 0.5s ease, opacity 0.3s ease",
     opacity: 0,
   }),
   arrow: css({
@@ -129,7 +107,10 @@ export const OffertTiles = () => {
         <Box
           css={tileStyles.tile}
           key={index}
-          sx={{ width: { xs: "20rem", sm: "17rem" }, height: { xs: "11rem", sm: "22rem" } }}
+          sx={{
+            width: { xs: "17.5rem", sm: "17rem", md: "15rem", xl: "15rem" },
+            height: { xs: "11rem", sm: "22rem" },
+          }}
         >
           <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} />
           <Box className="overlay" css={tileStyles.overlay} />
@@ -143,6 +124,7 @@ export const OffertTiles = () => {
             flexDirection="column"
             alignItems="start"
             gap="1rem"
+            sx={{ fontSize: { xs: "0.8rem !important" } }}
           >
             {tile.description}
             <Box display="flex" alignItems="center" justifyContent="center">

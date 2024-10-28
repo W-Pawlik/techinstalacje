@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { css } from "@emotion/react";
 import { ImageListItem, List, Typography } from "@mui/material";
-import { Box, useMediaQuery } from "@mui/system";
+import { Box } from "@mui/system";
 import banner from "../assets/images/heroSectionBanner.png";
 import logo1 from "../assets/images/realization1.png";
 import logo2 from "../assets/images/realization2.png";
@@ -13,6 +13,8 @@ import ContentWithHeadingContainer from "../components/containers/ContentWithHea
 import { OffertTiles } from "../components/presentational/OffertTiles";
 import { Page } from "../components/presentational/Page";
 import VerticalStepper from "../components/presentational/VerticalStepper";
+import { cardsData } from "../consts/texts/homeView/cardsData";
+import { HomeTexts } from "../consts/texts/homeView/homeView";
 
 const HomeViewCss = {
   title: () =>
@@ -76,52 +78,18 @@ export const HomeView = () => {
 
   return (
     <Page
-      herSectionTitle={"Instalacje tworzone z szczerej pasji"}
-      heroSectionSubtitle={"Wyrusz z nami w podróż perfekcyjnej współpracy"}
+      herSectionTitle={HomeTexts.HeroSectionTitle}
+      heroSectionSubtitle={HomeTexts.HeroSectionSubTitle}
       buttonText="Poznaj nas"
       banner={banner}
     >
       <ContentLImgR
-        title="TechInstalacje - nowoczesne rozwiązania to nasza pasja"
-        content="Profesjonalne doradztwo, sprzedaż, montaż i obsługa serwisowa urządzeń i instalacji wymaga
-          nieustannego doskonalenia umiejętności. Dlatego uczestniczymy w szkoleniach branżowych jak
-          i produktowych wiodących marek. Dzięki kształceniu się w Szkole Nowoczesnych Technik
-          Grzewczych VIESSMANN, firma TECHINSTALACJE stała się specjalistą branży Odnawialnych
-          Źródeł Energii (OZE). Jako nieliczni możemy pochwalić się certyfikatem Instalatora OZE. W
-          2020 roku zaplanowaliśmy zakończyć budowę DOMU TESTOWEGO, w którym zaprezentujemy część
-          rozwiązań, na jakie także Państwo będziecie mogli się zdecydować. Jeśli szukacie
-          wykwalifikowanych specjalistów w wyżej wymienionych dziedzinach, zadzwońcie do Nas."
+        title={HomeTexts.FirstSectionTitle}
+        content={HomeTexts.FirstSectionContent}
         image={smthImg}
       />
 
-      <CardsContainer
-        cardsData={[
-          {
-            title: "Jakość",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-          {
-            title: "Wykonanie",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-          {
-            title: "Zaufanie",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-          {
-            title: "Profesjonalizm",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-          {
-            title: "Terminowość",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-          {
-            title: "Doradztwo",
-            textContent: "Korzystamy z wyjątkowych produktów oraz używamy nowoczesnych technik",
-          },
-        ]}
-      />
+      <CardsContainer cardsData={cardsData} />
 
       <Box css={HomeViewCss.RealizationsBox}>
         <Typography variant="h2" fontWeight="bold">
@@ -132,7 +100,7 @@ export const HomeView = () => {
             <ImageListItem key={i}>
               <Box
                 component="img"
-                sx={{ width: { xs: "5rem", sm: "7rem", md: "10rem", lg: "14rem", xl: "16rem" } }}
+                sx={{ width: { xs: "4.5rem", sm: "7rem", md: "10rem", lg: "14rem", xl: "16rem" } }}
                 src={img.img}
                 alt={img.title}
                 loading="lazy"
@@ -154,13 +122,7 @@ export const HomeView = () => {
       <ContentWithHeadingContainer
         title="Poznaj naszą ofertę"
         subtitle="Dlaczego TechInstalacje?"
-        content={
-          <Typography variant="body1">
-            Jako firma specjalizująca się w różnych usługach staramy zapewnić Państwu usługi
-            najwyższje jakości. Instalacje gazowe, gydraulika, fotowoltaika, wentylacje... Nie
-            zależnie od usług, mogą być Państwo pewni najwyższej jakości ✔
-          </Typography>
-        }
+        content={<Typography variant="body1">{HomeTexts.TilesCWHCContent}</Typography>}
       />
 
       <OffertTiles />

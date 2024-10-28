@@ -5,45 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { BaseTabs } from "../../src/components/presentational/BaseTabs";
 import { CommonButton } from "../../src/components/presentational/Button";
 import banner from "../assets/images/offertBanner.png";
-import tab5Img from "../assets/images/offertElektryka.png";
-import tab1Img from "../assets/images/offertFotowoltaika.png";
-import tab3Img from "../assets/images/offertHydraulika.png";
-import tab2Img from "../assets/images/offertInstalacje.png";
-import tab4Img from "../assets/images/offertWentylacja.png";
 import { Page } from "../components/presentational/Page";
-
-const tabData = [
-  {
-    tabTitle: "Fotowoltaika",
-    tabContent:
-      "Sposób na realne obniżenie rachunków za prąd oraz niezależność od podwyżek cen energii.Tylko kilka kroków dzieli Państwa od własnej instalacji Fotowoltaicznej. Opieramynasze instalacje tylko na urządzeniach renomowanych marek, jak Fronius, SolarEdge, Sharp,JaSolar.Nie oszczędzamy na materiałach, komponentach. Priorytetem jest optymalnainstalacja, dopasowana do Państwa potrzeb.",
-    tabPicture: tab1Img,
-  },
-  {
-    tabTitle: "Instalacje",
-    tabContent:
-      "Sposób na realne obniżenie rachunków za prąd oraz niezależność od podwyżek cen energii.Tylko kilka kroków dzieli Państwa od własnej instalacji Fotowoltaicznej. Opieramynasze instalacje tylko na urządzeniach renomowanych marek, jak Fronius, SolarEdge, Sharp,JaSolar.Nie oszczędzamy na materiałach, komponentach. Priorytetem jest optymalnainstalacja, dopasowana do Państwa potrzeb.",
-    tabPicture: tab2Img,
-  },
-  {
-    tabTitle: "Hydraulika",
-    tabContent:
-      "Sposób na realne obniżenie rachunków za prąd oraz niezależność od podwyżek cen energii.Tylko kilka kroków dzieli Państwa od własnej instalacji Fotowoltaicznej. Opieramynasze instalacje tylko na urządzeniach renomowanych marek, jak Fronius, SolarEdge, Sharp,JaSolar.Nie oszczędzamy na materiałach, komponentach. Priorytetem jest optymalnainstalacja, dopasowana do Państwa potrzeb.",
-    tabPicture: tab3Img,
-  },
-  {
-    tabTitle: "Wentylacja",
-    tabContent:
-      "Sposób na realne obniżenie rachunków za prąd oraz niezależność od podwyżek cen energii.Tylko kilka kroków dzieli Państwa od własnej instalacji Fotowoltaicznej. Opieramynasze instalacje tylko na urządzeniach renomowanych marek, jak Fronius, SolarEdge, Sharp,JaSolar.Nie oszczędzamy na materiałach, komponentach. Priorytetem jest optymalnainstalacja, dopasowana do Państwa potrzeb.",
-    tabPicture: tab4Img,
-  },
-  {
-    tabTitle: "Elektryka",
-    tabContent:
-      "Sposób na realne obniżenie rachunków za prąd oraz niezależność od podwyżek cen energii.Tylko kilka kroków dzieli Państwa od własnej instalacji Fotowoltaicznej. Opieramynasze instalacje tylko na urządzeniach renomowanych marek, jak Fronius, SolarEdge, Sharp,JaSolar.Nie oszczędzamy na materiałach, komponentach. Priorytetem jest optymalnainstalacja, dopasowana do Państwa potrzeb.",
-    tabPicture: tab5Img,
-  },
-];
+import { tabData } from "../consts/texts/offertView/tabData";
 
 export const OffertView = () => {
   const navigate = useNavigate();
@@ -86,7 +49,8 @@ export const OffertView = () => {
         }}
         variant="h1"
       >
-        Nasze realizacje tworzone są bla bla bla bla lorem ipsum
+        W TechInstalacje oferujemy kompleksowe usługi instalacyjne dla domów i firm. Nasze
+        specjalizacje to:
       </Typography>
 
       <Box component="div" ref={tabsRef}>

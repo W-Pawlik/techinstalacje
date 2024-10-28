@@ -5,11 +5,10 @@ import { Box } from "@mui/material";
 import { CardsContainer } from "../../src/components/containers/CardsContainer";
 import { ContactForm } from "../../src/components/forms/ContactForm";
 import banner from "../assets/images/ContactBanner.png";
-import AdresIcon from "../assets/images/iconAdres.png";
-import ContactIcon from "../assets/images/iconCall.png";
-import EmailIcon from "../assets/images/iconEmail.png";
 import TitleSubTitleContainer from "../components/containers/TitleSubTitleContainer";
 import { Page } from "../components/presentational/Page";
+import { cardsData } from "../consts/texts/contactView/cardsData";
+import { ContactTexts } from "../consts/texts/contactView/contactView";
 
 const ContactViewCss = {
   formBox: () =>
@@ -17,13 +16,8 @@ const ContactViewCss = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      // gap: "2.8rem",
+      marginBottom: "6rem",
     }),
-  // contactImg: () =>
-  //   css({
-  //     width: "35rem",
-  //     borderRadius: "20px",
-  //   }),
 };
 
 export const ContactView = () => {
@@ -46,40 +40,22 @@ export const ContactView = () => {
   }, []);
 
   return (
-    <Page herSectionTitle={"Kontakt"} heroSectionSubtitle={"Napisz do nas"} banner={banner}>
+    <Page
+      herSectionTitle={ContactTexts.HeroSectionTitle}
+      heroSectionSubtitle={ContactTexts.HeroSectionSubTitle}
+      banner={banner}
+    >
       <Box css={ContactViewCss.formBox} ref={formRef}>
         <ContactForm />
-        {/* <Box component="img" alt="contactImg" src={banner} css={ContactViewCss.contactImg} /> */}
       </Box>
 
       <TitleSubTitleContainer
-        title="Nasze realizacje tworzone są w zarówno w dużych jak i małych placówkach"
-        subtitle="Ispot, piekarnia jakaś tam, sklep Lorem impsum, nie żałują z naszych usług"
+        title={ContactTexts.TitleSubTitleContainerTitle}
+        subtitle={ContactTexts.TitleSubTitleContainerSubTitle}
       />
 
       <Box marginTop="5rem">
-        <CardsContainer
-          responsiveColumn="column"
-          cardsData={[
-            {
-              title: "Adres",
-              textContent:
-                "ul. Piłsudskiego 74/320 50-020 Wrocław NIP: 897 187 52 77 Regon 385355839 KRS 0000824325",
-              pngIcon: AdresIcon,
-            },
-            {
-              title: "Telefon",
-              textContent:
-                "+48 690 001 858 Godziny kontaktu: Pon-Pt: 8:00 - 18:00 Sob: 9:00 - 14:00",
-              pngIcon: ContactIcon,
-            },
-            {
-              title: "E-Mail",
-              textContent: "biuro@techinstalacje.pl",
-              pngIcon: EmailIcon,
-            },
-          ]}
-        />
+        <CardsContainer cardsData={cardsData} xsWidth="13rem" smWidth="10rem" smHeight="10rem" />
       </Box>
     </Page>
   );

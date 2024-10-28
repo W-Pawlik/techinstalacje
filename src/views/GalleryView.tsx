@@ -4,55 +4,42 @@ import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitl
 import RealizationsBanner from "../assets/images/RealizationsBanner.png";
 import CTABottom from "../components/presentational/CTABottom";
 import { Page } from "../components/presentational/Page";
-
-const items = [
-  {
-    title: "Kafelek 1",
-    description: "Opis kafelka 1",
-    imageSrc: RealizationsBanner,
-  },
-  {
-    title: "Kafelek 2",
-    description: "Opis kafelka 2",
-    imageSrc: RealizationsBanner,
-  },
-  {
-    title: "Kafelek 3",
-    description: "Opis kafelka 3",
-    imageSrc: RealizationsBanner,
-  },
-  {
-    title: "Kafelek 4",
-    description: "Opis kafelka 4",
-    imageSrc: RealizationsBanner,
-  },
-];
+import { GalleryTexts } from "../consts/texts/galleryView/galleryView";
+import { realizationsTileData } from "../consts/texts/galleryView/tileData";
 
 export const GalleryView = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    // localStorage.setItem("scrollToForm", "true");
+    localStorage.setItem("scrollToTabs", "true");
+    navigate("/oferta");
+  };
+
+  const handleClickSecond = () => {
     localStorage.setItem("scrollToForm", "true");
     navigate("/kontakt");
   };
+
   return (
     <Page
-      heroSectionSubtitle={"Dołącz do naszej galerii"}
-      herSectionTitle={"Nasze realizacje"}
+      heroSectionSubtitle={GalleryTexts.HeroSectionTitle}
+      herSectionTitle={GalleryTexts.HeroSectionSubTitle}
       banner={RealizationsBanner}
     >
       <TitleSubTitleContainer
-        title="Nasze realizacje tworzone są w zarówno w dużych jak i małych placówkach"
-        subtitle="Ispot, piekarnia jakaś tam, sklep Lorem impsum, nie żałują z naszych usług"
+        title={GalleryTexts.FirstSectionTitle}
+        subtitle={GalleryTexts.FirstSectionContent}
       />
 
-      <RealizationsTilesContainer items={items} />
+      <RealizationsTilesContainer items={realizationsTileData} />
 
       <CTABottom
-        title="Skontaktuj się z nami w celu ustalenia warunków itp. itd. (miesjce na zachęcenie do
-          kontaktu) lorem ipsum"
-        buttonText="Skontaktu się z nami"
+        title={GalleryTexts.CtaTitle}
+        buttonText="Oferta"
         onButtonClick={handleClick}
+        secondButtonText="Skontaktu się z nami"
+        onSecondButtonClick={handleClickSecond}
       />
     </Page>
   );

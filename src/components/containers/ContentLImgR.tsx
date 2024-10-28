@@ -40,7 +40,7 @@ const ContentLImgR: React.FC<ContentLImgRProps> = ({ title, content, image }) =>
       <Typography
         variant="h2"
         textAlign="center"
-        sx={{ width: { xs: "100%", sm: "50%", md: "70%" }, borderBottom: "thin solid #d8d8d8" }}
+        sx={{ width: { xs: "100%", sm: "100%", md: "100%" }, borderBottom: "thin solid #d8d8d8" }}
         fontWeight="bold"
       >
         {title}
@@ -52,7 +52,7 @@ const ContentLImgR: React.FC<ContentLImgRProps> = ({ title, content, image }) =>
           alignItems: "end",
           display: "flex",
           justifyContent: "stretch",
-          wordBreak: "break-all",
+          // wordBreak: "break-all",
         }}
       >
         {content}

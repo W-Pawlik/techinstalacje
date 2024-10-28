@@ -24,10 +24,9 @@ interface BaseTabsProps {
 }
 
 const BaseTabsCss = {
-  tabContainer: (theme: Theme, isImageRight: boolean) =>
+  tabContainer: () =>
     css({
       display: "flex",
-      flexDirection: isImageRight ? "row-reverse" : "row",
       alignItems: "center",
       justifyContent: "space-between",
       width: "100%",
@@ -35,10 +34,6 @@ const BaseTabsCss = {
       borderBottomLeftRadius: "10px !important",
       borderBottomRightRadius: "10px !important",
       backgroundColor: "#FAFAFA",
-    }),
-  tabImg: (isImageRight: boolean) =>
-    css({
-      borderRadius: isImageRight ? "0 0 10px 0 !important" : "0 0 0 10px !important",
     }),
   activeTab: (theme: Theme) =>
     css({
@@ -172,7 +167,7 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
         displayEmpty
         variant="outlined"
         sx={{
-          marginBottom: "1rem",
+          // marginBottom: "1rem",
           display: { xs: "flex", sm: "flex", md: "none" },
         }}
       >
@@ -185,16 +180,32 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
       <Box width="100%">
         {tabData.map((tab, index) =>
           tab.tabTitle === currentTab ? (
-            <Box key={tab.tabTitle} css={BaseTabsCss.tabContainer(theme, index % 2 === 0)}>
+            <Box
+              key={tab.tabTitle}
+              css={BaseTabsCss.tabContainer()}
+              sx={{
+                flexDirection: {
+                  xs: "column",
+                  sm: "column",
+                  md: index % 2 === 0 ? "row-reverse" : "row",
+                },
+                borderBottomLeftRadius: { md: "10px !important" },
+                borderBottomRightRadius: { md: "10px !important" },
+              }}
+            >
               <Box
                 sx={{
-                  width: { xs: "5rem", sm: "10rem", md: "15rem", lg: "25rem", xl: "30rem" },
-                  height: { xs: "5rem", sm: "10rem", md: "16rem", lg: "25rem", xl: "30rem" },
+                  width: { xs: "100%", sm: "100%", md: "15rem", lg: "25rem", xl: "30rem" },
+                  height: { xs: "20rem", sm: "20rem", md: "22rem", lg: "25rem", xl: "30rem" },
+                  borderRadius: {
+                    xs: "none !important",
+                    sm: "none !important",
+                    md: index % 2 === 0 ? "0 0 10px 0 !important" : "0 0 0 10px !important",
+                  },
                 }}
                 component="img"
                 src={tab.tabPicture}
                 alt={tab.tabTitle}
-                css={BaseTabsCss.tabImg(index % 2 === 0)}
               />
               <Box
                 component="div"
@@ -203,7 +214,12 @@ export const BaseTabs = ({ tabData }: BaseTabsProps) => {
                 gap="1.5rem"
                 justifyContent="center"
                 sx={{
-                  padding: { xs: "0 1rem", sm: " 0 2rem", md: "0 3rem", lg: "0 4rem" },
+                  padding: {
+                    xs: "1rem 1rem",
+                    sm: "1rem 2rem",
+                    md: "1rem 3rem",
+                    lg: "0 4rem",
+                  },
                   gap: { sm: "0", md: "0" },
                 }}
               >

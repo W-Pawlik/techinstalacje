@@ -8,6 +8,7 @@ import ContentLImgR from "../components/containers/ContentLImgR";
 import AboutCard from "../components/presentational/AboutCard";
 import CTABottom from "../components/presentational/CTABottom";
 import { Page } from "../components/presentational/Page";
+import { AboutTexts } from "../consts/texts/aboutView/aboutView";
 
 export const AboutView = () => {
   const navigate = useNavigate();
@@ -17,10 +18,14 @@ export const AboutView = () => {
     navigate("/kontakt");
   };
   return (
-    <Page herSectionTitle={"O nas"} heroSectionSubtitle={"Poznaj nas bliżej"} banner={banner}>
+    <Page
+      herSectionTitle={AboutTexts.HeroSectionTitle}
+      heroSectionSubtitle={AboutTexts.HeroSectionSubTitle}
+      banner={banner}
+    >
       <ContentLImgR
-        title="Poznaj naszą firmę od środka"
-        content="Jesteśmy firmą działającą od 15 lat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin odio magna, elementum a dolor vel, rhoncus sagittis eros. Sed a ligula non justo sollicitudin aliquam eget in mauris. Vivamus ultrices diam justo, nec tempor augue tristique ac. Aenean et lobortis arcu. Nulla eleifend arcu odio "
+        title={AboutTexts.FirstSectionTitle}
+        content={AboutTexts.FirstSectionContent}
         image={smth}
       />
 
@@ -44,8 +49,8 @@ export const AboutView = () => {
           Nasz lider
         </Typography>
         <AboutCard
-          name="Krzysztof Jarzyna"
-          description="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+          name={AboutTexts.AboutCardName}
+          description={AboutTexts.AboutCardContent}
           imageUrl={image}
         />
       </Box>

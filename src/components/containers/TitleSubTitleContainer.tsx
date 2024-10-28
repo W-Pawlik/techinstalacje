@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 
 interface TitleSubTitleContainerProps {
@@ -6,14 +5,15 @@ interface TitleSubTitleContainerProps {
   subtitle: string;
 }
 
-const TitleSubTitleContainer: React.FC<TitleSubTitleContainerProps> = ({ title, subtitle }) => (
+const TitleSubTitleContainer = ({ title, subtitle }: TitleSubTitleContainerProps) => (
   <Box>
     <Typography
       variant="h1"
       textAlign="center"
-      fontWeight="700"
+      fontWeight="bold"
       marginBottom="1rem"
-      lineHeight="5.87rem"
+      lineHeight="2rem"
+      sx={{ borderBottom: "thin solid #d8d8d8", paddingBottom: "2rem", fontSize: "2rem" }}
     >
       {title}
     </Typography>
@@ -22,7 +22,8 @@ const TitleSubTitleContainer: React.FC<TitleSubTitleContainerProps> = ({ title, 
       textAlign="center"
       fontWeight="400"
       marginBottom="5rem"
-      lineHeight="3.56rem"
+      lineHeight="2rem"
+      fontSize="1.4rem"
     >
       {subtitle}
     </Typography>

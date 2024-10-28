@@ -57,8 +57,6 @@ export const createTheme = (): MuiTheme => {
       h1: {
         fontSize: "2.82rem",
         fontWeight: "700",
-        // lineHeight: 1.33,
-        // marginBottom: "30px",
         [breakpoints.down("sm")]: {
           fontSize: "1.63rem",
         },

@@ -11,15 +11,24 @@ interface CardData {
 interface CardsContainerProps {
   responsiveColumn?: string;
   cardsData: CardData[];
+  xsWidth?: string;
+  smWidth?: string;
+  smHeight?: string;
 }
 
-export const CardsContainer = ({ cardsData, responsiveColumn }: CardsContainerProps) => (
+export const CardsContainer = ({
+  cardsData,
+  responsiveColumn,
+  xsWidth,
+  smWidth,
+  smHeight,
+}: CardsContainerProps) => (
   <Box
     display="flex"
     justifyContent="center"
     sx={{
       flexDirection: { xs: `${responsiveColumn}`, sm: "row" },
-      gap: { xs: "1.5rem", sm: "2rem", md: "3rem", lg: "4rem" },
+      gap: { xs: "1rem", sm: "2rem", md: "3rem", lg: "4rem" },
       flexWrap: "wrap",
       alignItems: { xs: "center", sm: "center", md: "stretch" },
       marginBottom: "5rem",
@@ -35,6 +44,9 @@ export const CardsContainer = ({ cardsData, responsiveColumn }: CardsContainerPr
         title={card.title}
         textContent={card.textContent}
         pngIcon={card.pngIcon}
+        xsWidth={xsWidth}
+        smWidth={smWidth}
+        smHeight={smHeight}
       />
     ))}
   </Box>
