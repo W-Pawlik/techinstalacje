@@ -21,9 +21,6 @@ const heroSectionCss = {
       width: "100%",
       height: "60vh",
       flexDirection: "column",
-      // eslint-disable-next-line max-len
-      // background: `linear-gradient(90deg, rgba(74,128,210,1) 16%, rgba(76,128,206,1) 36%, rgba(115,115,115,0) 77%), url(${banner})`,
-      // eslint-disable-next-line max-len
       background: `linear-gradient(90deg, #4c80ce8d 2%, rgba(115,115,115,0) 77%), url(${banner})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",

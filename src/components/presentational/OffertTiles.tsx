@@ -112,7 +112,7 @@ export const OffertTiles = () => {
             height: { xs: "11rem", sm: "22rem" },
           }}
         >
-          <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} />
+          <img src={tile.imageUrl} alt={tile.title} css={tileStyles.image} loading="lazy" />
           <Box className="overlay" css={tileStyles.overlay} />
           <Typography className="title" css={tileStyles.title}>
             {tile.title}

@@ -2,11 +2,11 @@
 import { css } from "@emotion/react";
 import { ImageListItem, List, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import banner from "../assets/images/heroSectionBanner.png";
-import logo1 from "../assets/images/realization1.png";
-import logo2 from "../assets/images/realization2.png";
-import logo3 from "../assets/images/realization3.png";
-import smthImg from "../assets/images/smth (2).png";
+import banner from "../assets/images/heroSectionBanner.webp";
+import logo1 from "../assets/images/realization1.webp";
+import logo2 from "../assets/images/realization2.webp";
+import logo3 from "../assets/images/realization3.webp";
+import smthImg from "../assets/images/smth (2).webp";
 import { CardsContainer } from "../components/containers/CardsContainer";
 import ContentLImgR from "../components/containers/ContentLImgR";
 import ContentWithHeadingContainer from "../components/containers/ContentWithHeadingContainer";
@@ -46,8 +46,6 @@ const HomeViewCss = {
     }),
   headingText: () =>
     css({
-      // width: "45rem",
-      // height: "24rem",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",

@@ -16,18 +16,16 @@ const contentWithHeadingContainerCss = {
     display: "flex",
     justifyContent: "center",
     gap: "3rem",
-    // width: "100%",
   }),
 };
 
-const ContentWithHeadingContainer: React.FC<ContentWithHeadingContainerProps> = ({
+const ContentWithHeadingContainer = ({
   title,
   subtitle,
   content,
   titlePosition = "left",
   marginBottom = "2rem",
-  // height = "auto",
-}) => {
+}: ContentWithHeadingContainerProps) => {
   const isTitleLeft = titlePosition === "left";
 
   return (

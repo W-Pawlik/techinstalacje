@@ -23,9 +23,17 @@ export const SocialMediaContainer = ({ icons }: SocialMediaContainerProps) => (
   <Box display="flex" component="div" css={socialMediaContainerCss.smContainer}>
     {icons.map(({ icon: Icon, url }, i) => (
       <List key={i}>
-        <ListItemButton component="a" target="_blank" href={url} data-testid="link">
-          <Icon />
-        </ListItemButton>
+        <li>
+          <ListItemButton
+            component="a"
+            target="_blank"
+            href={url}
+            data-testid="link"
+            aria-label="Visit our Social Media"
+          >
+            <Icon />
+          </ListItemButton>
+        </li>
       </List>
     ))}
   </Box>

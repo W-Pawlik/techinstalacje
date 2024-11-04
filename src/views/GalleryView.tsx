@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { RealizationsTilesContainer } from "../../src/components/containers/RealizationsTilesContainer ";
 import TitleSubTitleContainer from "../../src/components/containers/TitleSubTitleContainer";
-import RealizationsBanner from "../assets/images/RealizationsBanner.png";
+import RealizationsBanner from "../assets/images/RealizationsBanner.webp";
 import CTABottom from "../components/presentational/CTABottom";
 import { Page } from "../components/presentational/Page";
 import { GalleryTexts } from "../consts/texts/galleryView/galleryView";
@@ -11,7 +11,6 @@ export const GalleryView = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // localStorage.setItem("scrollToForm", "true");
     localStorage.setItem("scrollToTabs", "true");
     navigate("/oferta");
   };

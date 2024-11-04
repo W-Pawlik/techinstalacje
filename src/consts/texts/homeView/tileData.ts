@@ -1,7 +1,7 @@
-import offert1 from "../../../assets/images/offert1.jpg";
-import offert2 from "../../../assets/images/offert2.jpg";
-import offert3 from "../../../assets/images/offert3.jpg";
-import offert4 from "../../../assets/images/offert4.jpg";
+import offert1 from "../../../assets/images/offert1.webp";
+import offert2 from "../../../assets/images/offert2.webp";
+import offert3 from "../../../assets/images/offert3.webp";
+import offert4 from "../../../assets/images/offert4.webp";
 
 export const tileData = [
   {

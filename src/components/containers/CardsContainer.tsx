@@ -1,5 +1,4 @@
-import React from "react";
-import { Box } from "@mui/system";
+import Box from "@mui/system/Box";
 import { BaseCard } from "../presentational/BaseCard";
 
 interface CardData {

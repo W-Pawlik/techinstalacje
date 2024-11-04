@@ -1,8 +1,8 @@
-import tab5Img from "../../../assets/images/offertElektryka.png";
-import tab1Img from "../../../assets/images/offertFotowoltaika.png";
-import tab3Img from "../../../assets/images/offertHydraulika.png";
-import tab2Img from "../../../assets/images/offertInstalacje.png";
-import tab4Img from "../../../assets/images/offertWentylacja.png";
+import tab5Img from "../../../assets/images/offertElektryka.webp";
+import tab1Img from "../../../assets/images/offertFotowoltaika.webp";
+import tab3Img from "../../../assets/images/offertHydraulika.webp";
+import tab2Img from "../../../assets/images/offertInstalacje.webp";
+import tab4Img from "../../../assets/images/offertWentylacja.webp";
 
 export const tabData = [
   {

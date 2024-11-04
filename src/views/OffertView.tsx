@@ -4,7 +4,7 @@ import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { BaseTabs } from "../../src/components/presentational/BaseTabs";
 import { CommonButton } from "../../src/components/presentational/Button";
-import banner from "../assets/images/offertBanner.png";
+import banner from "../assets/images/offertBanner.webp";
 import { Page } from "../components/presentational/Page";
 import { tabData } from "../consts/texts/offertView/tabData";
 

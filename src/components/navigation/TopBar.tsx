@@ -93,6 +93,7 @@ export const TopBar = () => {
         >
           <Box
             component="img"
+            alt="TechInstalacje"
             src={logo}
             css={topBarCss.logo}
             sx={{ width: { xs: "10rem", md: "14rem" } }}
@@ -119,7 +120,7 @@ export const TopBar = () => {
           ))}
         </Box>
 
-        <IconButton onClick={handleDrawerToggle} sx={{ display: { md: "none" } }}>
+        <IconButton onClick={handleDrawerToggle} sx={{ display: { md: "none" } }} aria-label="Menu">
           <MenuIcon />
         </IconButton>
       </Toolbar>

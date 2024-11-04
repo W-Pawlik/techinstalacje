@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import banner from "../assets/images/aboutViewBanner.png";
-import smth from "../assets/images/smth (2).png";
-import image from "../assets/images/szefImg.png";
+import banner from "../assets/images/aboutViewBanner.webp";
+import smth from "../assets/images/smth (2).webp";
+import image from "../assets/images/szefImg.webp";
 import ContentLImgR from "../components/containers/ContentLImgR";
 import AboutCard from "../components/presentational/AboutCard";
 import CTABottom from "../components/presentational/CTABottom";

@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import { Box } from "@mui/material";
 import { CardsContainer } from "../../src/components/containers/CardsContainer";
 import { ContactForm } from "../../src/components/forms/ContactForm";
-import banner from "../assets/images/ContactBanner.png";
+import banner from "../assets/images/ContactBanner.webp";
 import TitleSubTitleContainer from "../components/containers/TitleSubTitleContainer";
 import { Page } from "../components/presentational/Page";
 import { cardsData } from "../consts/texts/contactView/cardsData";

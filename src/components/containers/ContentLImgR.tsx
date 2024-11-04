@@ -64,6 +64,7 @@ const ContentLImgR: React.FC<ContentLImgRProps> = ({ title, content, image }) =>
       alt="hey"
       sx={{ alignSelf: { lg: "center" } }}
       css={ContentLImgRCss.headingImg}
+      loading="lazy"
     />
   </Box>
 );

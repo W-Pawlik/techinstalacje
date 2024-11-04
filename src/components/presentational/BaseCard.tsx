@@ -73,7 +73,7 @@ export const BaseCard = ({
         padding: { xs: "1rem", sm: "3.5rem", md: "3rem", lg: "2rem", xl: "2rem" },
       }}
     >
-      {imgUrl && <CardMedia component="img" alt={title} image={imgUrl} />}
+      {imgUrl && <CardMedia component="img" alt={title} image={imgUrl} loading="lazy" />}
       <CardContent css={BaseCardCss.cardContent(theme)}>
         <Typography
           variant="h3"

@@ -37,7 +37,7 @@ export default function VerticalStepper() {
                 ) : null
               }
             >
-              <Typography variant="h4">{step.label}</Typography>
+              <Typography fontSize="0.9rem">{step.label}</Typography>
             </StepLabel>
             <StepContent>
               <Typography variant="body2">{step.description}</Typography>

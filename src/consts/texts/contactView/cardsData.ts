@@ -1,6 +1,6 @@
-import AdresIcon from "../../../assets/images/iconAdres.png";
-import ContactIcon from "../../../assets/images/iconCall.png";
-import EmailIcon from "../../../assets/images/iconEmail.png";
+import AdresIcon from "../../../assets/images/iconAdres.webp";
+import ContactIcon from "../../../assets/images/iconCall.webp";
+import EmailIcon from "../../../assets/images/iconEmail.webp";
 
 export const cardsData = [
   {

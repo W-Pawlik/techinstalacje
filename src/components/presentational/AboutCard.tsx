@@ -37,6 +37,7 @@ const AboutCard = ({ name, description, imageUrl }: AboutCardProps) => {
             transform: { xs: "translateY(3rem)", sm: "none" },
             zIndex: "0",
           }}
+          loading="lazy"
         />
         <Box
           sx={{

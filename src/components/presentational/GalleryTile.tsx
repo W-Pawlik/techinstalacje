@@ -54,7 +54,13 @@ export const GalleryTile = ({ title, description, imageSrc }: GalleryTileInterfa
       height: { xs: "18rem", sm: "18rem", md: "25rem", xl: "25rem" },
     }}
   >
-    <CardMedia component="img" image={imageSrc} alt={title} css={GalleryTileCss.tileImage()} />
+    <CardMedia
+      component="img"
+      image={imageSrc}
+      alt={title}
+      css={GalleryTileCss.tileImage()}
+      loading="lazy"
+    />
 
     <CardContent className="card-content" css={GalleryTileCss.title()}>
       <Typography variant="h3" sx={{ fontWeight: "600" }}>

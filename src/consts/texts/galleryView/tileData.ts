@@ -1,4 +1,4 @@
-import RealizationsBanner from "../../../assets/images/RealizationsBanner.png";
+import RealizationsBanner from "../../../assets/images/RealizationsBanner.webp";
 
 export const realizationsTileData = [
   {
