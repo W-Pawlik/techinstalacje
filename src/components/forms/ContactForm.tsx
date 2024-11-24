@@ -68,6 +68,8 @@ export const ContactForm = () => {
     message: "",
   });
 
+  const pubKey = import.meta.env.VITE_EMAILJS_PUB_KEY;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -87,7 +89,7 @@ export const ContactForm = () => {
       // eslint-disable-next-line import/no-named-as-default-member
       emailjs
         .sendForm("service_wxmyr5d", "template_zfvow85", form.current, {
-          publicKey: "cNtCTivX5pxxwrd7C",
+          publicKey: pubKey,
         })
         .then(
           () => {

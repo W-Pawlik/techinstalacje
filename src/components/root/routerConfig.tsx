@@ -15,7 +15,6 @@ export const routerConfig: RouteObject[] = [
     element: <Layout />,
     children: [
       {
-        // Domyślna trasa, przekierowanie do HomeView
         index: true,
         element: <Navigate to={navigationRoutes.HomeView} replace />,
       },
