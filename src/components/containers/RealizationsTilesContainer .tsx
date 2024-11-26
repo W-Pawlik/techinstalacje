@@ -27,7 +27,7 @@ export const RealizationsTilesContainer = ({ items }: RealizationsTilesContainer
     sx={{ padding: { xs: "0 0" }, gap: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" } }}
   >
     {items.map((item, index) => (
-      <Box key={index} css={tileStyles}>
+      <Box key={index} css={tileStyles} data-testid={`realization-tile-${index}`}>
         <GalleryTile {...item} />
       </Box>
     ))}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Theme, Typography, useTheme } from "@mui/material";
 
 interface AboutCardProps {

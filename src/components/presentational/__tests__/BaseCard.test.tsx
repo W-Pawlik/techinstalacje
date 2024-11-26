@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { TestingProvider } from "../../../__fixtures__/TestingProvider";
+// eslint-disable-next-line import/no-unresolved
 import img from "../../../assets/images/offert1.jpg";
 import { BaseCard } from "../BaseCard";
 

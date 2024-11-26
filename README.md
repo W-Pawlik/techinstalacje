@@ -33,17 +33,8 @@ providing contact options.
 
 ## Prerequisites
 
-1. **Python 3.8+**
-2. **MongoDB Database** (for products module)
-3. **Environment Variables**: Create a `.env` file in the root directory with the following:
-   ```env
-   MONGODB_USERNAME=<your_username>
-   MONGODB_PWD=<your_password>
-   ```
-4. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. **Node.js**
+2. **EmailJS Account**
 
 ---
 
